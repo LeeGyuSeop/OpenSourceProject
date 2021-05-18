@@ -20,11 +20,14 @@ public class ClassifySystem {
 		
 		// 파일을 절대경로로 지정했는데 상대경로로 하니까 실행이 안되는 현상 발생
 		
-		File data = new File("C:\\Users\\ok\\Documents\\OpenSourceProject\\자치구별 지하철역 승하차.csv"); // 파일 경로 지정
+		File data = new File("C:\\Users\\ok\\Documents\\OpenSourceProject\\자료분석\\서울시 지하철 승하차량 종합 데이터.csv"); // 파일 경로 지정
 		String originalData; // 파일에서 가져올 원본 데이터
-		String commend; // 명령어
-		String sellectcommend; // 세부 명령
-		int sellectTime; // 시간대 선택
+		String inputCommend; // 입력 명령어
+		String commend; // 실행 명령어
+		String sellect; // 기능 선택
+		String area; // 지역 선택
+		String station; // 역 선택
+		int time; // 시간대 선택
 		
 		try {
 			FileReader fileReader = new FileReader(data);
@@ -42,30 +45,59 @@ public class ClassifySystem {
 		while(true) {
 			System.out.print("Enter commend : ");
 			Scanner scanner = new Scanner(System.in); // 명령어 입력
-			commend = scanner.nextLine();
-			StringTokenizer stringTokenizer = new StringTokenizer(commend,"_");
-			if(stringTokenizer.nextToken().equals("#get")) {
-				sellectcommend = stringTokenizer.nextToken(); // 세부명령
-				sellectTime = Integer.parseInt(stringTokenizer.nextToken()) - 6; // 시간대 선택 ( 리스트의 인덱스를 고려해 구간 시작 시간을 기준으로 -6 적용 )
-				rideAndQuitCommend(sellectcommend,sellectTime); // 결과값 출력
+			inputCommend = scanner.nextLine();
+			StringTokenizer stringTokenizer = new StringTokenizer(inputCommend,"_");
+			commend = stringTokenizer.nextToken();
+			if(commend.equals("#getListByTime")) {
+				sellect = stringTokenizer.nextToken(); // 불러올 리스트의 통계량 기준 설정
+				time = Integer.parseInt(stringTokenizer.nextToken()) - 6; // 시간대 선택 ( 리스트의 인덱스를 고려해 구간 시작 시간을 기준으로 -6 적용 )
+				getList(null, null, sellect,time); // 결과값 출력
 			}
-			else if(commend.equals("#exit")) {
+			else if(commend.equals("#getListByDistrict")) {
+				area = stringTokenizer.nextToken(); // 불러올 리스트의 지역 기준 설정
+				sellect = stringTokenizer.nextToken(); // 불러올 리스트의 통계량 기준 설정
+				time = Integer.parseInt(stringTokenizer.nextToken()) - 6; // 시간대 선택 ( 리스트의 인덱스를 고려해 구간 시작 시간을 기준으로 -6 적용 )
+				getList(area, null, sellect,time); // 결과값 출력
+			}
+			else if(commend.equals("#getListByStation")) {
+				station = stringTokenizer.nextToken(); // 불러올 리스트의 지역 기준 설정
+				sellect = stringTokenizer.nextToken(); // 불러올 리스트의 통계량 기준 설정
+				time = Integer.parseInt(stringTokenizer.nextToken()) - 6; // 시간대 선택 ( 리스트의 인덱스를 고려해 구간 시작 시간을 기준으로 -6 적용 )
+				getList(null, station, sellect,time); // 결과값 출력
+			}
+			else if(inputCommend.equals("#exit")) { // 프로그램 종료
 				System.out.println("System Exit");
 				break;
 			}
 		}
 	}
 	
-	public static void rideAndQuitCommend(String sellect, int dataIndex) {
+	// 리스트 불러오기
+	public static void getList(String area, String station, String command, int dataIndex) {
 		int listIndex = 0; // 리스트 인덱스 초기값 0
 		
 		while(listIndex < dataList.size()) { // 리스트의 크기까지 루프
-			System.out.print(dataList.get(listIndex).date + "/" + dataList.get(listIndex).district + "/" + dataList.get(listIndex).station + 
-					"/");
-			if(sellect.equals("ride")) System.out.println(dataList.get(listIndex).ride.get(dataIndex));
-			else if(sellect.equals("quit")) System.out.println(dataList.get(listIndex).quit.get(dataIndex));
+			if(area != null && (dataList.get(listIndex).district).equals(area)) {
+				System.out.print(dataList.get(listIndex).date + "/" + dataList.get(listIndex).district + "/" + dataList.get(listIndex).line + "/" +
+						dataList.get(listIndex).station + "/"); // 날짜/노선/자치구/역명 출력
+				if(command.equals("ride")) System.out.println(dataList.get(listIndex).ride.get(dataIndex)); // 승차량 기준 출력
+				else if(command.equals("quit")) System.out.println(dataList.get(listIndex).quit.get(dataIndex)); // 하차량 기준 출력
+			}
+			else if(station != null && (dataList.get(listIndex).station).equals(station)) {
+				System.out.print(dataList.get(listIndex).date + "/" + dataList.get(listIndex).district + "/" + dataList.get(listIndex).line + "/" +
+						dataList.get(listIndex).station + "/"); // 날짜/노선/자치구/역명 출력
+				if(command.equals("ride")) System.out.println(dataList.get(listIndex).ride.get(dataIndex)); // 승차량 기준 출력
+				else if(command.equals("quit")) System.out.println(dataList.get(listIndex).quit.get(dataIndex)); // 하차량 기준 출력
+			}
+			else if(area == null && station == null) {
+				System.out.print(dataList.get(listIndex).date + "/" + dataList.get(listIndex).district + "/" + dataList.get(listIndex).line + "/" +
+						dataList.get(listIndex).station + "/"); // 날짜/노선/자치구/역명 출력
+				if(command.equals("ride")) System.out.println(dataList.get(listIndex).ride.get(dataIndex)); // 승차량 기준 출력
+				else if(command.equals("quit")) System.out.println(dataList.get(listIndex).quit.get(dataIndex)); // 하차량 기준 출력
+			}
 			listIndex++;
 		}
+		
 	}
 }
 class DataList {
