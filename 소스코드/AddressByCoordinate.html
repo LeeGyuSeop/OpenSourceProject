@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>실행</title>
+
+    
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <button onclick="openTextFile()">Open</button>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88&libraries=services"></script>
+    <script type="text/javascript">
+        var value;
+        var result = "";
+        var cordinate = "";
+        var c=0;
+        // 장소 검색 객체를 생성합니다
+        var ps = new kakao.maps.services.Places();
+        //txt 파일 읽어오기
+        function openTextFile() {
+            var input = document.createElement("input");
+            input.type = "file";
+            input.accept = "text/plain"; // 확장자가 xxx, yyy 일때, ".xxx, .yyy"
+            input.onchange = function(event) {
+                processFile(event.target.files[0]);
+            };
+            input.click();
+        }
+        //파일 데이터 value 값에 저장
+        function processFile(file) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                value = reader.result;
+                document.querySelector("body").innerText = value;
+                valueSplit(value);
+            };
+            reader.readAsText(file, "utf-8");
+
+        }
+        //데이터 ,와 \n 단위로 쪼개기
+        function valueSplit(value) {
+            var lineSplit = value.split('\n');
+            for (var i in lineSplit) {
+                var commaSplit = lineSplit[i].split(',');
+                if(i==0){result += "좌표값," + lineSplit[0];}
+                for (var j in commaSplit) {
+                    if (j == 3 && i > 0) {
+                        searchCoordinate(commaSplit[j], lineSplit[i]);
+                    }
+                }
+            }
+            //saveAsFile(result, "결과.txt");
+        }
+        //데이터 좌표로 바꾸기
+        function searchCoordinate(station, line) {
+            var xl, yl;
+            // 키워드로 장소를 검색합니다
+            ps.keywordSearch(station+'역', placesSearchCB);
+            // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+            function placesSearchCB(data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    cordinate = "X좌표 : "+data[0].x+"&Y좌표 : "+data[0].y;
+                    result += cordinate + "," + line+"\n";
+                    c++;
+                }
+                if(c==298){saveAsFile(result, "결과.txt");}
+            }
+            console.log("X좌표 : "+xl+"&Y좌표 : "+yl);
+            return "X좌표 : "+xl+"&Y좌표 : "+yl;
+        }
+        //데이터 저장
+        function saveAsFile(str, filename) {
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:attachment/text,' + encodeURI(str);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = filename;
+            hiddenElement.click();
+        }
+    </script>
+</body>
+
+</html>
