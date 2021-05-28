@@ -6,30 +6,28 @@ import java.util.*;
 public class File_Reader {
 	File data = new File("D:\\GIT_Project\\OpenSourceProject\\자료분석\\21년_상권정보(원시).csv");
 	File CodeData=new File("D:\\GIT_Project\\OpenSourceProject\\자료분석\\상권업종코드.csv");
-	String originalData;
-	String fullData;
-	String [] dis= {"종로구","중구","용산구","성동구","광진구","동대문구","중랑구","성북구","강북구","도봉구",
-			"노원구","은평구","서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구",
-			"관악구","서초구","강남구","송파구","강동구"
-	};
-	static ArrayList<DataList> dataList=new ArrayList<DataList>();
-	static ArrayList<SectorsCode> Codata=new ArrayList<SectorsCode>(); 
+	String originalData;//상권정보데이터를 읽어들이는 String
+	String originalCode;//업종코드를 읽어들이는 String
+
+	static ArrayList<DataList> dataList=new ArrayList<DataList>();//각 가게의 정보 저장
+	static ArrayList<SectorsCode> Codata=new ArrayList<SectorsCode>(); //업종 코드 저장
 	void Reading(){
 		try 
 		{ 
 			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(CodeData),"UTF-8"));
-			while((fullData=br.readLine())!=null) {
+			while((originalCode=br.readLine())!=null) {
 				int check=0;
-				SectorsCode sc=new SectorsCode();
-				sc.Reading(fullData);
-				String [] a=fullData.split(",");
-				for(int i=0;i<Codata.size();i++) {
+				SectorsCode sc=new SectorsCode();//
+				sc.Reading(originalCode);
+				String [] a=originalCode.split(",");
+				for(int i=0;i<Codata.size();i++) {//소분류가 중복된다면 저장하지 않는다.
 					if(a[4].equals(Codata.get(i).Subclass))
 						check=1;
 				}
 				if(check==0)
 					Codata.add(sc);
 			}
+			System.out.println("Complete");
 			BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(data),"UTF-8"));
 			while((originalData = bufferedReader.readLine()) != null) {
 				DataList createList = new DataList();
@@ -37,6 +35,7 @@ public class File_Reader {
 				dataList.add(createList); 
 
 			}
+			System.out.println("Complete");
 		} catch (FileNotFoundException e) {
 			System.err.println("FileNotFoundException"); 
 		} catch (IOException e) {

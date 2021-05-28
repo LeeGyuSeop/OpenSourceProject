@@ -11,16 +11,16 @@ public class DataList {
 void ShowList(String originalData,ArrayList<SectorsCode> Codata){
 	StringTokenizer st=new StringTokenizer(originalData,"|");
 	while(st.hasMoreTokens()) {
-		String a=st.nextToken();
+		String token=st.nextToken();
 
-		for(int i=0;i<Codata.size();i++) {
-		if(a.equals(Codata.get(i).Sectors))
-			Sectors=a;
-		else if(a.equals(Codata.get(i).Subclass))
-				Subclass=a;
+		for(int i=0;i<Codata.size();i++) {//분류를 저장
+		if(token.equals(Codata.get(i).Sectors))
+			Sectors=token;//token과 분류와 같다면 저장
+		else if(token.equals(Codata.get(i).Subclass))
+				Subclass=token;//token과 소분류와 같다면 저장
 		}
-		for(int j=0;j<dis.length;j++) {
-			if(a.equals(dis[j])) {
+		for(int j=0;j<dis.length;j++) {//주소를 저장
+			if(token.equals(dis[j])) {
 				district=dis[j];
 			}
 		}
