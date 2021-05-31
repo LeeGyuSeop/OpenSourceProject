@@ -16,11 +16,13 @@ Final Update : 2021 . 06 . 01
     line-height: 100px; /* 수직 가운데 정렬 */
 }
 #main{
-    background-color:ivory;
+    background-color:white;
 }
 #footer{
-    background-color:ivory;
+    background-color: gainsboro;
     height: 310px;
+    text-align: center; /* 텍스트 가운데 정렬 */
+    line-height: 100px; /* 수직 가운데 정렬 */
 }
 
 @font-face { /* 외부 폰트 가져오기 */
