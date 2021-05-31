@@ -4,7 +4,7 @@ Final Update : 2021 . 06 . 01
 */
 
 #header{
-    background: linear-gradient(to right top,rgb(188, 154, 243), rgb(99, 226, 188)); /* 배경 색 설정 (%는 좌로부터 각 영역 지점) */
+    background: linear-gradient(to right top,rgb(188, 154, 243), rgb(99, 226, 188)); /* 배경 색 설정 */
     color: transparent; /* 텍스트 투명화 */
     -webkit-background-clip: text; /* 백그라운드 색상을 글씨에만 적용 */
     -webkit-text-stroke: 3px darkslateblue; /* 외곽선 처리 */
