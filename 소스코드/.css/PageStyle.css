@@ -2,7 +2,9 @@
 Developer : 정원우
 Final Update : 2021 . 06 . 01
 */
-
+#body{
+    background: rgb(240, 240, 255);
+}
 #header{
     background: linear-gradient(to right top,rgb(188, 154, 243), rgb(99, 226, 188)); /* 배경 색 설정 */
     color: transparent; /* 텍스트 투명화 */
@@ -16,10 +18,11 @@ Final Update : 2021 . 06 . 01
     line-height: 100px; /* 수직 가운데 정렬 */
 }
 #main{
-    background-color:white;
+    background-color:rgb(227, 227, 253);
+    height: 700px; /* 영역 크기 */
 }
 #footer{
-    background-color: gainsboro;
+    background-color: rgb(217, 217, 252);
     height: 310px;
     text-align: center; /* 텍스트 가운데 정렬 */
     line-height: 100px; /* 수직 가운데 정렬 */
