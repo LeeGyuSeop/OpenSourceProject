@@ -1,0 +1,29 @@
+/*
+Developer : 정원우
+Final Update : 2021 . 06 . 01
+*/
+
+#header{
+    background: linear-gradient(to right top,rgb(188, 154, 243), rgb(99, 226, 188)); /* 배경 색 설정 (%는 좌로부터 각 영역 지점) */
+    color: transparent; /* 텍스트 투명화 */
+    -webkit-background-clip: text; /* 백그라운드 색상을 글씨에만 적용 */
+    -webkit-text-stroke: 3px darkslateblue; /* 외곽선 처리 */
+    height: 100px; /* 영역 크기 */
+    font-family: "Maplestory Bold"; /* 폰트 */
+    font-size: 80px; /* 글씨 크기 */
+    font-weight: bold; /* 볼드체 적용 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    line-height: 100px; /* 수직 가눙데 정렬 */
+}
+#main{
+    background-color:ivory;
+}
+#footer{
+    background-color:ivory;
+    height: 310px;
+}
+
+@font-face { /* 외부 폰트 가져오기 */
+    font-family: "Maplestory Bold";
+    src: url("../../.ttf/Maplestory Bold.ttf");
+}
