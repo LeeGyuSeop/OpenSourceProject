@@ -7,17 +7,46 @@
     </head>
     <body id ="body">
         <link rel="stylesheet" href="../css/PageStyle.css">
-        <header id="header">대중교통 유동인구 기반 상권분석 시스템</header>
-        <main id="main">메인 프레임
-            <input type="button" value="분석"/>
-            <select name="area">
-                <option value="===선택===">선택</option>
-                <script type="text/javascript" src="../js/InsertAreaList.js"></script>
-            </select>
-        </main>
-        <footer id="footer">선문대학교 컴퓨터공학부 2021년도 오픈소스프로젝트
-            <p> 개발자 : 이규섭(대표) 박영우 박건순 정원우</p>
-            <p> 연락처 : 010-6974-6974</p>
-        </footer>
+        <div class="tilte">대중교통 유동인구 기반 상권분석 시스템</div>
+        <div class="centersort">
+            <div class="topMenu">
+                <b>지역(구) : </b>
+                <select name="area">
+                    <option value="===선택===">선택</option>
+                    <script type="text/javascript" src="../js/InsertAreaList.js"></script>
+                </select>
+                <b>업종 : </b>
+                <select name="work">
+                    <option value="===선택===">선택</option>
+                </select>
+                <input type="button" value="선택완료"/><br></br>
+                <b>통계량 선택 : </b>
+                <select name="work">
+                    <option value="===선택===">선택</option>
+                    <option value="경쟁업종 수">경쟁업종 수</option>
+                    <option value="생존율">생존율</option>
+                    <option value="유동인구 수">유동인구 수</option>
+                    <option value="잔나 잔~나 쓰레기">잔나 잔~나 쓰레기</option>
+                </select>
+            </div>
+            <div>
+                <div class="selectMenu">
+                    <b>상세 분석 옵션</b>
+                </div>
+                <div class = "main">
+                    <div class="chart">
+        
+                    </div>
+        
+        
+                </div>
+                <div class = "cradit">
+                    <p>선문대학교 컴퓨터공학부 2021년도 오픈소스프로젝트</p>
+                    <p>개발자 : 이규섭(대표) 박영우 박건순 정원우</p>
+                    <p>문의 : 010-1023-6974</p>
+                </div>
+            </div>
+            
+        </div>
     </body>
 </html>
