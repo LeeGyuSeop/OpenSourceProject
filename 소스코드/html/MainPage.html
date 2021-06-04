@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
         <title>대중교통 유동인구 기반 상권분석 시스템</title>
     </head>
     <body id ="body">
@@ -15,23 +16,37 @@
                     <option value="===선택===">선택</option>
                     <script type="text/javascript" src="../js/InsertAreaList.js"></script>
                 </select>
-                <b>업종 : </b>
-                <select name="work">
+                <b>대분류 업종 : </b>
+                <select name="bt1">
                     <option value="===선택===">선택</option>
+                    <script type="text/javascript" src="../js/InsertBusinessTypeList.js"></script>
+                </select>
+                <b>중분류 업종 : </b>
+                <select name="bt2">
+                    <option value="===선택===">선택</option>
+
                 </select>
                 <input type="button" value="선택완료"/><br></br>
-                <b>통계량 선택 : </b>
+                <b>추천지역</b>
                 <select name="work">
                     <option value="===선택===">선택</option>
-                    <option value="경쟁업종 수">경쟁업종 수</option>
-                    <option value="생존율">생존율</option>
-                    <option value="유동인구 수">유동인구 수</option>
-                    <option value="잔나 잔~나 쓰레기">잔나 잔~나 쓰레기</option>
                 </select>
             </div>
             <div>
                 <div class="selectMenu">
-                    <b>상세 분석 옵션</b>
+                    <label><input type="checkbox" name="c1">경쟁업종 수</label>
+                    <label><input type="checkbox" name="c2">생존율</label><br></br>
+                    <label><input type="checkbox" name="c3">유동인구 수 평균</label>
+                    <select name="time">
+                        <option value="===시간대===">시간대 선택</option>
+                        <option value="아침(7~12)">아침(7~12)</option>
+                        <option value="점심(12~14)">점심(12~14)</option>
+                        <option value="오후(14~19)">오후(14~19)</option>
+                        <option value="저녁(19~24)">저녁(19~24)</option>
+                    </select><br></br>
+                    <label><input type="checkbox" name="c5">공시지가 평균</label><br></br>
+                    <label><input type="checkbox" name="c7">종합 스코어</label>
+
                 </div>
                 <div class = "main">
                     <div class="chart">

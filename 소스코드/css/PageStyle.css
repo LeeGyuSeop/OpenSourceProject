@@ -28,7 +28,7 @@ Final Update : 2021 . 06 . 01
     height: 150px;
     background: rgb(219, 205, 245);
     border: 2px solid darkslateblue; /* 테두리 색 */
-    line-height: 30px; /* 줄 간격 */
+    line-height: 20px; /* 줄 간격 */
     border-radius: 20px; /* 테두리 둥글게 */
     margin: 5px;
 }
