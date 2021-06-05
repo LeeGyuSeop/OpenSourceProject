@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src="https://d3js.org/d3.v6.min.js"></script>
         <title>대중교통 유동인구 기반 상권분석 시스템</title>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     </head>
     <body id ="body">
         <link rel="stylesheet" href="../css/PageStyle.css">
@@ -19,12 +19,12 @@
                 <b>대분류 업종 : </b>
                 <select name="bt1">
                     <option value="===선택===">선택</option>
-                    <script type="text/javascript" src="../js/InsertBusinessTypeList.js"></script>
+                    <script type="text/javascript" src="../js/InsertLargeBusinessTypeList.js"></script>
                 </select>
                 <b>중분류 업종 : </b>
                 <select name="bt2">
                     <option value="===선택===">선택</option>
-
+                    <script type="text/javascript" src="../js/InsertMidiumBusinessTypeList.js"></script>
                 </select>
                 <input type="button" value="선택완료"/><br></br>
                 <b>추천지역</b>
@@ -39,10 +39,10 @@
                     <label><input type="checkbox" name="c3">유동인구 수 평균</label>
                     <select name="time">
                         <option value="===시간대===">시간대 선택</option>
-                        <option value="아침(7~12)">아침(7~12)</option>
-                        <option value="점심(12~14)">점심(12~14)</option>
-                        <option value="오후(14~19)">오후(14~19)</option>
-                        <option value="저녁(19~24)">저녁(19~24)</option>
+                        <option value="아침">아침(7~12)</option>
+                        <option value="점심">점심(12~14)</option>
+                        <option value="오후">오후(14~19)</option>
+                        <option value="저녁">저녁(19~24)</option>
                     </select><br></br>
                     <label><input type="checkbox" name="c5">공시지가 평균</label><br></br>
                     <label><input type="checkbox" name="c7">종합 스코어</label>
