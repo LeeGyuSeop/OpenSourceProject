@@ -14,44 +14,51 @@ public class File_Reader {
 	String x;
 	String y;
 	String location;
-	String morning;
-	String lunch;
-	String afternoon;
-	String dinner;
 	int check=0;
 	static ArrayList<Bus_Data>busdata=new ArrayList<Bus_Data>();
+	String [] dis= {"종로구","중구","용산구","성동구","광진구","동대문구","중랑구","성북구","강북구","도봉구",
+			"노원구","은평구","서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구",
+			"관악구","서초구","강남구","송파구","강동구"
+	};
+	String []district=new String[26];
+	public static boolean isnum(String s) {
+		try {
+			Double.parseDouble(s);
+			return true;
+		}catch (NumberFormatException e) {
+			return false;
+		}
+	}
 	void Station(File data,File code) {//1차가공데이터
 		try 
 		{ 
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(data),"UTF-8"));
 		while((originalData=br.readLine())!=null) {
-			if(check==0);
-			else {
+			
 			String [] a=originalData.split(",");
 			File_Reader fr=new File_Reader();
-			
-			fr.location(a[0], code);
-			int m=0;
-			int l=0;
-			int af=0;
-			int d=0;
-			for(int i=9;i<14;i++) {
-				m+=Integer.parseInt(a[i]);
+			if(isnum(a[0])) {	
+				fr.location(a[0], code);
+				int m=0;
+				int l=0;
+				int af=0;
+				int d=0;
+				for(int i=9;i<14;i++) {
+					m+=Integer.parseInt(a[i]);
+				}
+				for(int i=14;i<16;i++) {
+					l+=Integer.parseInt(a[i]);
+				}
+				for(int i=16;i<21;i++) {
+					af+=Integer.parseInt(a[i]);
+				}
+				for(int i=21;i<26;i++) {
+					d+=Integer.parseInt(a[i]);
+				}
+				Bus_Data bd=new Bus_Data(a[0],a[1],fr.location,m,l,af,d);
+				busdata.add(bd);
+				}
 			}
-			for(int i=14;i<16;i++) {
-				l+=Integer.parseInt(a[i]);
-			}
-			for(int i=16;i<21;i++) {
-				af+=Integer.parseInt(a[i]);
-			}
-			for(int i=21;i<26;i++) {
-				d+=Integer.parseInt(a[i]);
-			}
-			Bus_Data bd=new Bus_Data(a[0],a[1],fr.location,m,l,af,d);
-			busdata.add(bd);
-			}
-			check++;
-		}
 		
 		}catch (FileNotFoundException e) {
 			System.err.println("FileNotFoundException");
@@ -59,6 +66,7 @@ public class File_Reader {
 		e.printStackTrace(); 
 	}
 	}
+	
 	void location(String code,File data) {//코드-주소 데이터
 		try {
 			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(data),"UTF-8"));
@@ -75,15 +83,17 @@ public class File_Reader {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		
 	}
+	
 	void Code(File data) {//좌표데이터
-		int i=0;
+
 		try 
 		{ 
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(data),"EUC-KR"));
+		originalData=br.readLine();
 		while((originalData=br.readLine())!=null) {
-			if(i==0);
-			else {
+
 			String [] a=originalData.split(",");
 			code=a[1];
 			x=a[3];
@@ -91,9 +101,6 @@ public class File_Reader {
 			//System.out.println(a[1]+" "+a[3]+" "+a[4]);
 			GetAddress ga=new GetAddress();
 			ga.getCoordination(a[1],a[3],a[4]);
-			
-			}
-			i++;
 		}
 		}catch (FileNotFoundException e) {
 			System.err.println("FileNotFoundException");
@@ -102,5 +109,41 @@ public class File_Reader {
 	}catch (Exception e) {
 		e.printStackTrace();
 	}
+		
 	}
+	void borough(File file) {//2차 데이터를 불러와 3차 데이터 작성
+		try {
+			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+			originalData=br.readLine();
+			int []morning=new int[25];
+			int []lunch=new int[25];
+			int []afternoon=new int[25];
+			int []dinner=new int[25];
+			while((originalData=br.readLine())!=null) {
+				 String []data=originalData.split(",");
+				 for(int i=0;i<dis.length;i++) {
+					 if(dis[i].equals(data[2])) {
+						 morning[i]+=Integer.parseInt(data[3]);
+						 lunch[i]+=Integer.parseInt(data[4]);
+						 afternoon[i]+=Integer.parseInt(data[5]);
+						 dinner[i]+=Integer.parseInt(data[6]);
+						 
+					 }
+					 
+				 }
+			}File_Writer fw=new File_Writer();
+			
+			district[0]="주소,아침,점심,오후,저녁\r\n";
+			fw.finbus(district[0]);
+			for(int i=1;i<district.length-1;i++) {
+				district[i]=dis[i]+","+morning[i]+","+lunch[i]+","+afternoon[i]+","+dinner[i]+"\r\n";
+				fw.finbus(district[i]);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
+

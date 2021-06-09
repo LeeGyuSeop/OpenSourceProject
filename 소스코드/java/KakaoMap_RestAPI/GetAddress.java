@@ -12,8 +12,8 @@ import org.json.simple.parser.JSONParser;
 
 public class GetAddress {
 	String getCoordination(String code,String x,String y) throws Exception{
-		String encodeAddress = "";  // �ѱ� �ּҴ� encoding �ؼ� ������ ��
-		//try { encodeAddress = URLEncoder.encode( address, "UTF-8" ); } 
+		String encodeAddress = "";  
+		//try { encodeAddress = URLEncoder.encode( address, "UTF-8" ); } 	//주소검색시 인코딩
 		//catch ( UnsupportedEncodingException e ) { e.printStackTrace(); }
 		String apiUrl = "https://dapi.kakao.com/v2/local/geo/coord2address.json?x="+x+"&y="+y+"&input_coord=WGS84";
 		String auth = "KakaoAK " + "08f0ea1ef4bdc4c4e4e85d6b69cf4dfe";//api Ű
@@ -36,7 +36,7 @@ public class GetAddress {
 	    try {
 	    
 	    jsonString=br.readLine();
-	    //System.out.println(jsonString);
+	    //json 데이터 자치구 파싱
 	    JSONParser jsonParse=new JSONParser();
 		JSONObject jsonObj=(JSONObject)jsonParse.parse(jsonString);
 		JSONArray personArray=(JSONArray)jsonObj.get("documents");
