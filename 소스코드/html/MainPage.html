@@ -10,575 +10,554 @@
     <body id="body">
         <link rel="stylesheet" href="../css/PageStyle.css">
         <div class="tilte">대중교통 유동인구 기반 상권분석 시스템</div>
-        <div class="centersort">
-            <div class="topMenu">
-                <b>지역(구) : </b>
-                <select id="areaBox1">
-                    <option value="선택">선택</option>
-                    <option value="강남구">강남구</option>
-                    <option value="강동구">강동구</option>
-                    <option value="강북구">강북구</option>
-                    <option value="강서구">강서구</option>
-                    <option value="관악구">관악구</option>
-                    <option value="광진구">광진구</option>
-                    <option value="구로구">구로구</option>
-                    <option value="금천구">금천구</option>
-                    <option value="노원구">노원구</option>
-                    <option value="동대문구">동대문구</option>
-                    <option value="도봉구">도봉구</option>
-                    <option value="동작구">동작구</option>
-                    <option value="마포구">마포구</option>
-                    <option value="서대문구">서대문구</option>
-                    <option value="성동구">성동구</option>
-                    <option value="성북구">성북구</option>
-                    <option value="서초구">서초구</option>
-                    <option value="송파구">송파구</option>
-                    <option value="영등포구">영등포구</option>
-                    <option value="양천구">양천구</option>
-                    <option value="은평구">은평구</option>
-                    <option value="종로구">종로구</option>
-                    <option value="중구">중구</option>
-                    <option value="중랑구">중랑구</option>
-                </select>
-                <b>대분류 업종 : </b>
-                <select id="selectBox1" onchange="selectBusinessType();">
-                    <option value="===선택===">선택</option>
-                    <option value="음식">음식</option>
-                    <option value="생활서비스">생활서비스</option>
-                    <option value="소매">소매</option>
-                    <option value="관광/여가/오락">관광/여가/오락</option>
-                    <option value="스포츠">스포츠</option>
-                    <option value="학문/교육">학문/교육</option>
-                    <option value="숙박">숙박</option>
-                    <option value="부동산">부동산</option>
-                </select>
-                <b>중분류 업종 : </b>
-                <select id="selectBox2">
-                    <option value="선택">선택</option>
-                    <option value="닭/오리요리" class="food" hidden>닭/오리요리</option>
-                    <option value="한식" class="food" hidden>한식</option>
-                    <option value="일식/수산물" class="food" hidden>일식/수산물</option>
-                    <option value="양식" class="food" hidden>양식</option>
-                    <option value="분식" class="food" hidden>분식</option>
-                    <option value="패스트푸드" class="food" hidden>패스트푸드</option>
-                    <option value="부페" class="food" hidden>부페</option>
-                    <option value="기타음식업" class="food" hidden>기타음식업</option>
-                    <option value="제과제빵떡케익" class="food" hidden>제과제빵떡케익</option>
-                    <option value="별식/퓨전요리" class="food" hidden>별식/퓨전요리</option>
-                    <option value="음식배달서비스" class="food" hidden>음식배달서비스</option>
-                    <option value="유흥주점" class="food" hidden>유흥주점</option>
-                    <option value="커피점/카페" class="food" hidden>커피점/카페</option>
-                    <option value="중식" class="food" hidden>중식</option>
-
-                    <option value="광고/인쇄" class="lifeService" hidden>광고/인쇄</option>
-                    <option value="개인/가정용품수리" class="lifeService" hidden>개인/가정용품수리</option>
-                    <option value="자동차/이륜차" class="lifeService" hidden>자동차/이륜차</option>
-                    <option value="주유소/충전소" class="lifeService" hidden>주유소/충전소</option>
-                    <option value="주택수리" class="lifeService" hidden>주택수리</option>
-                    <option value="운송/배달/택배" class="lifeService" hidden>운송/배달/택배</option>
-                    <option value="예식/의례/관혼상제" class="lifeService" hidden>예식/의례/관혼상제</option>
-                    <option value="기타서비스업" class="lifeService" hidden>기타서비스업</option>
-                    <option value="대중목욕탕/휴게" class="lifeService" hidden>대중목욕탕/휴게</option>
-                    <option value="세탁/가사서비스" class="lifeService" hidden>세탁/가사서비스</option>
-                    <option value="물품기기대여" class="lifeService" hidden>물품기기대여</option>
-                    <option value="법무세무회계" class="lifeService" hidden>법무세무회계</option>
-                    <option value="인력/고용/용역알선" class="lifeService" hidden>인력/고용/용역알선</option>
-                    <option value="대행업" class="lifeService" hidden>대행업</option>
-                    <option value="사진" class="lifeService" hidden>사진</option>
-                    <option value="행사/이벤트" class="lifeService" hidden>행사/이벤트</option>
-                    <option value="이/미용/건강" class="lifeService" hidden>이/미용/건강</option>
-                    <option value="장례/묘지" class="lifeService" hidden>장례/묘지</option>
-
-                    <option value="종합소매점" class="retail" hidden>종합소매점</option>
-                    <option value="중고품소매/교환" class="retail" hidden>중고품소매/교환</option>
-                    <option value="기타판매업" class="retail" hidden>기타판매업</option>
-                    <option value="음/식료품소매" class="retail" hidden>음/식료품소매</option>
-                    <option value="가정/주방/인테리어" class="retail" hidden>가정/주방/인테리어</option>
-                    <option value="의복의류" class="retail" hidden>의복의류</option>
-                    <option value="선물/팬시/기념품" class="retail" hidden>선물/팬시/기념품</option>
-                    <option value="사무/문구/컴퓨터" class="retail" hidden>사무/문구/컴퓨터</option>
-                    <option value="가방/신발/액세서리" class="retail" hidden>가방/신발/액세서리</option>
-                    <option value="애견/애완/동물" class="retail" hidden>애견/애완/동물</option>
-                    <option value="유아용품" class="retail" hidden>유아용품</option>
-                    <option value="자동차/자동차용품" class="retail" hidden>자동차/자동차용품</option>
-                    <option value="의약/의료품소매" class="retail" hidden>의약/의료품소매</option>
-                    <option value="화장품소매" class="retail" hidden>화장품소매</option>
-                    <option value="사진/광학/정밀기기소매" class="retail" hidden>사진/광학/정밀기기소매</option>
-                    <option value="시계/귀금속소매" class="retail" hidden>시계/귀금속소매</option>
-                    <option value="종교용품판매" class="retail" hidden>종교용품판매</option>
-                    <option value="운동/경기용품소매" class="retail" hidden>운동/경기용품소매</option>
-                    <option value="취미/오락관련소매" class="retail" hidden>취미/오락관련소매</option>
-                    <option value="예술품/골동품/수석/분재" class="retail" hidden>예술품/골동품/수석/분재</option>
-                    <option value="철물/난방/건설자재소매" class="retail" hidden>철물/난방/건설자재소매</option>
-                    <option value="페인트/유리제품소매" class="retail" hidden>페인트/유리제품소매</option>
-                    <option value="책/서적/도서" class="retail" hidden>책/서적/도서</option>
-                    <option value="건강/미용식품" class="retail" hidden>건강/미용식품</option>
-
-                    <option value="전시/관람" class="tourismLeisureEntertainment" hidden>전시/관람</option>
-                    <option value="놀이/여가/취미" class="tourismLeisureEntertainment" hidden>놀이/여가/취미</option>
-                    <option value="요가/단전/마사지" class="tourismLeisureEntertainment" hidden>요가/단전/마사지</option>
-                    <option value="PC/오락/당구/볼링등" class="tourismLeisureEntertainment" hidden>PC/오락/당구/볼링등</option>
-                    <option value="스포츠/운동" class="tourismLeisureEntertainment" hidden>스포츠/운동</option>
-                    <option value="경마/경륜/성인오락" class="tourismLeisureEntertainment" hidden>경마/경륜/성인오락</option>
-                    <option value="무도/유흥/가무" class="tourismLeisureEntertainment" hidden>무도/유흥/가무</option>
-                    <option value="연극/영화/극장" class="tourismLeisureEntertainment" hidden>연극/영화/극장</option>
-
-                    <option value="실내운동시설" class="sports" hidden>실내운동시설</option>
-                    <option value="실외운동시설" class="sports" hidden>실외운동시설</option>
-                    <option value="운영관리시설" class="sports" hidden>운영관리시설</option>
-
-                    <option value="학원-자격/국가고시" class="academicEducation" hidden>학원-자격/국가고시</option>
-                    <option value="유아교육" class="academicEducation" hidden>유아교육</option>
-                    <option value="학교" class="academicEducation" hidden>학교</option>
-                    <option value="특수교육기관" class="academicEducation" hidden>특수교육기관</option>
-                    <option value="기타교육기관" class="academicEducation" hidden>기타교육기관</option>
-                    <option value="도서관/독서실" class="academicEducation" hidden>도서관/독서실</option>
-                    <option value="연구소" class="academicEducation" hidden>연구소</option>
-                    <option value="학원기타" class="academicEducation" hidden>학원기타</option>
-                    <option value="학원-예능취미체육" class="academicEducation" hidden>학원-예능취미체육</option>
-                    <option value="학원-창업취업취미" class="academicEducation" hidden>학원-창업취업취미</option>
-                    <option value="학원-자격/국가고시" class="academicEducation" hidden>학원-자격/국가고시</option>
-                    <option value="학원-보습교습입시" class="academicEducation" hidden>학원-보습교습입시</option>
-                    <option value="학원-음악미술무용" class="academicEducation" hidden>학원-음악미술무용</option>
-                    <option value="학원-어학" class="academicEducation" hidden>학원-어학</option>
-                    <option value="학원-컴퓨터" class="academicEducation" hidden>학원-컴퓨터</option>
-                    <option value="학문교육기타" class="academicEducation" hidden>학문교육기타</option>
-
-                    <option value="모텔/여관/여인숙" class="lodgment" hidden>모텔/여관/여인숙</option>
-                    <option value="캠프/별장/펜션" class="lodgment" hidden>캠프/별장/펜션</option>
-                    <option value="유스호스텔" class="lodgment" hidden>유스호스텔</option>
-                    <option value="호텔/콘도" class="lodgment" hidden>호텔/콘도</option>
-                    <option value="민박/하숙" class="lodgment" hidden>민박/하숙</option>
-
-                    <option value="부동산임대" class="estate" hidden>부동산임대</option>
-                    <option value="부동산중개" class="estate" hidden>부동산중개</option>
-                    <option value="분양" class="estate" hidden>분양</option>
-                    <option value="평가/개발/관리" class="estate" hidden>평가/개발/관리</option>
-                </select>
-                <input type="button" name="selectSuccess" value="선택완료" onclick="viewChart();"/><br></br>
-                <b>추천지역</b>
-                <select id="recommendation">
-                    <option value="선택">선택</option>
-                    <option value="지역1">지역1</option>
-                    <option value="지역2">지역2</option>
-                    <option value="지역3">지역3</option>
-                    <option value="지역4">지역4</option>
-                    <option value="지역5">지역5</option>
-                </select>
+        </div>
+        <div class = "main">
+            <div class ="tableSort">
+                <table width="100%" class="table">
+                    <tr>
+                        <td width="30%">
+                            <div class="selectMenu">
+                                <div class="centerSort">
+                                    <d>업종과 시간대를 선택해주세요</d><br></br>
+                                    <select id="selectBox1" onchange="selectBusinessType();">
+                                        <option value="대분류 업종">대분류 업종</option>
+                                        <option value="음식">음식</option>
+                                        <option value="생활서비스">생활서비스</option>
+                                        <option value="소매">소매</option>
+                                        <option value="관광/여가/오락">관광/여가/오락</option>
+                                        <option value="스포츠">스포츠</option>
+                                        <option value="학문/교육">학문/교육</option>
+                                        <option value="숙박">숙박</option>
+                                        <option value="부동산">부동산</option>
+                                    </select>
+                                    <select id="selectBox2">
+                                        <option value="중분류 업종">중분류 업종</option>
+                                        <option value="닭/오리요리" class="food" hidden>닭/오리요리</option>
+                                        <option value="한식" class="food" hidden>한식</option>
+                                        <option value="일식/수산물" class="food" hidden>일식/수산물</option>
+                                        <option value="양식" class="food" hidden>양식</option>
+                                        <option value="분식" class="food" hidden>분식</option>
+                                        <option value="패스트푸드" class="food" hidden>패스트푸드</option>
+                                        <option value="부페" class="food" hidden>부페</option>
+                                        <option value="기타음식업" class="food" hidden>기타음식업</option>
+                                        <option value="제과제빵떡케익" class="food" hidden>제과제빵떡케익</option>
+                                        <option value="별식/퓨전요리" class="food" hidden>별식/퓨전요리</option>
+                                        <option value="음식배달서비스" class="food" hidden>음식배달서비스</option>
+                                        <option value="유흥주점" class="food" hidden>유흥주점</option>
+                                        <option value="커피점/카페" class="food" hidden>커피점/카페</option>
+                                        <option value="중식" class="food" hidden>중식</option>
+                
+                                        <option value="광고/인쇄" class="lifeService" hidden>광고/인쇄</option>
+                                        <option value="개인/가정용품수리" class="lifeService" hidden>개인/가정용품수리</option>
+                                        <option value="자동차/이륜차" class="lifeService" hidden>자동차/이륜차</option>
+                                        <option value="주유소/충전소" class="lifeService" hidden>주유소/충전소</option>
+                                        <option value="주택수리" class="lifeService" hidden>주택수리</option>
+                                        <option value="운송/배달/택배" class="lifeService" hidden>운송/배달/택배</option>
+                                        <option value="예식/의례/관혼상제" class="lifeService" hidden>예식/의례/관혼상제</option>
+                                        <option value="기타서비스업" class="lifeService" hidden>기타서비스업</option>
+                                        <option value="대중목욕탕/휴게" class="lifeService" hidden>대중목욕탕/휴게</option>
+                                        <option value="세탁/가사서비스" class="lifeService" hidden>세탁/가사서비스</option>
+                                        <option value="물품기기대여" class="lifeService" hidden>물품기기대여</option>
+                                        <option value="법무세무회계" class="lifeService" hidden>법무세무회계</option>
+                                        <option value="인력/고용/용역알선" class="lifeService" hidden>인력/고용/용역알선</option>
+                                        <option value="대행업" class="lifeService" hidden>대행업</option>
+                                        <option value="사진" class="lifeService" hidden>사진</option>
+                                        <option value="행사/이벤트" class="lifeService" hidden>행사/이벤트</option>
+                                        <option value="이/미용/건강" class="lifeService" hidden>이/미용/건강</option>
+                                        <option value="장례/묘지" class="lifeService" hidden>장례/묘지</option>
+                
+                                        <option value="종합소매점" class="retail" hidden>종합소매점</option>
+                                        <option value="중고품소매/교환" class="retail" hidden>중고품소매/교환</option>
+                                        <option value="기타판매업" class="retail" hidden>기타판매업</option>
+                                        <option value="음/식료품소매" class="retail" hidden>음/식료품소매</option>
+                                        <option value="가정/주방/인테리어" class="retail" hidden>가정/주방/인테리어</option>
+                                        <option value="의복의류" class="retail" hidden>의복의류</option>
+                                        <option value="선물/팬시/기념품" class="retail" hidden>선물/팬시/기념품</option>
+                                        <option value="사무/문구/컴퓨터" class="retail" hidden>사무/문구/컴퓨터</option>
+                                        <option value="가방/신발/액세서리" class="retail" hidden>가방/신발/액세서리</option>
+                                        <option value="애견/애완/동물" class="retail" hidden>애견/애완/동물</option>
+                                        <option value="유아용품" class="retail" hidden>유아용품</option>
+                                        <option value="자동차/자동차용품" class="retail" hidden>자동차/자동차용품</option>
+                                        <option value="의약/의료품소매" class="retail" hidden>의약/의료품소매</option>
+                                        <option value="화장품소매" class="retail" hidden>화장품소매</option>
+                                        <option value="사진/광학/정밀기기소매" class="retail" hidden>사진/광학/정밀기기소매</option>
+                                        <option value="시계/귀금속소매" class="retail" hidden>시계/귀금속소매</option>
+                                        <option value="종교용품판매" class="retail" hidden>종교용품판매</option>
+                                        <option value="운동/경기용품소매" class="retail" hidden>운동/경기용품소매</option>
+                                        <option value="취미/오락관련소매" class="retail" hidden>취미/오락관련소매</option>
+                                        <option value="예술품/골동품/수석/분재" class="retail" hidden>예술품/골동품/수석/분재</option>
+                                        <option value="철물/난방/건설자재소매" class="retail" hidden>철물/난방/건설자재소매</option>
+                                        <option value="페인트/유리제품소매" class="retail" hidden>페인트/유리제품소매</option>
+                                        <option value="책/서적/도서" class="retail" hidden>책/서적/도서</option>
+                                        <option value="건강/미용식품" class="retail" hidden>건강/미용식품</option>
+                
+                                        <option value="전시/관람" class="tourismLeisureEntertainment" hidden>전시/관람</option>
+                                        <option value="놀이/여가/취미" class="tourismLeisureEntertainment" hidden>놀이/여가/취미</option>
+                                        <option value="요가/단전/마사지" class="tourismLeisureEntertainment" hidden>요가/단전/마사지</option>
+                                        <option value="PC/오락/당구/볼링등" class="tourismLeisureEntertainment" hidden>PC/오락/당구/볼링등</option>
+                                        <option value="스포츠/운동" class="tourismLeisureEntertainment" hidden>스포츠/운동</option>
+                                        <option value="경마/경륜/성인오락" class="tourismLeisureEntertainment" hidden>경마/경륜/성인오락</option>
+                                        <option value="무도/유흥/가무" class="tourismLeisureEntertainment" hidden>무도/유흥/가무</option>
+                                        <option value="연극/영화/극장" class="tourismLeisureEntertainment" hidden>연극/영화/극장</option>
+                
+                                        <option value="실내운동시설" class="sports" hidden>실내운동시설</option>
+                                        <option value="실외운동시설" class="sports" hidden>실외운동시설</option>
+                                        <option value="운영관리시설" class="sports" hidden>운영관리시설</option>
+                
+                                        <option value="학원-자격/국가고시" class="academicEducation" hidden>학원-자격/국가고시</option>
+                                        <option value="유아교육" class="academicEducation" hidden>유아교육</option>
+                                        <option value="학교" class="academicEducation" hidden>학교</option>
+                                        <option value="특수교육기관" class="academicEducation" hidden>특수교육기관</option>
+                                        <option value="기타교육기관" class="academicEducation" hidden>기타교육기관</option>
+                                        <option value="도서관/독서실" class="academicEducation" hidden>도서관/독서실</option>
+                                        <option value="연구소" class="academicEducation" hidden>연구소</option>
+                                        <option value="학원기타" class="academicEducation" hidden>학원기타</option>
+                                        <option value="학원-예능취미체육" class="academicEducation" hidden>학원-예능취미체육</option>
+                                        <option value="학원-창업취업취미" class="academicEducation" hidden>학원-창업취업취미</option>
+                                        <option value="학원-자격/국가고시" class="academicEducation" hidden>학원-자격/국가고시</option>
+                                        <option value="학원-보습교습입시" class="academicEducation" hidden>학원-보습교습입시</option>
+                                        <option value="학원-음악미술무용" class="academicEducation" hidden>학원-음악미술무용</option>
+                                        <option value="학원-어학" class="academicEducation" hidden>학원-어학</option>
+                                        <option value="학원-컴퓨터" class="academicEducation" hidden>학원-컴퓨터</option>
+                                        <option value="학문교육기타" class="academicEducation" hidden>학문교육기타</option>
+                
+                                        <option value="모텔/여관/여인숙" class="lodgment" hidden>모텔/여관/여인숙</option>
+                                        <option value="캠프/별장/펜션" class="lodgment" hidden>캠프/별장/펜션</option>
+                                        <option value="유스호스텔" class="lodgment" hidden>유스호스텔</option>
+                                        <option value="호텔/콘도" class="lodgment" hidden>호텔/콘도</option>
+                                        <option value="민박/하숙" class="lodgment" hidden>민박/하숙</option>
+                
+                                        <option value="부동산임대" class="estate" hidden>부동산임대</option>
+                                        <option value="부동산중개" class="estate" hidden>부동산중개</option>
+                                        <option value="분양" class="estate" hidden>분양</option>
+                                        <option value="평가/개발/관리" class="estate" hidden>평가/개발/관리</option>
+                                    </select>
+                                    <select id="timeBox">
+                                        <option value="시간대">시간대</option>
+                                        <option value="아침">아침(7~12)</option>
+                                        <option value="점심">점심(12~14)</option>
+                                        <option value="오후">오후(14~19)</option>
+                                        <option value="저녁">저녁(19~24)</option>
+                                    </select>
+                                    <input type="button" name="selectSuccess" value="선택완료" onclick="viewChart();"/><br></br>
+                                    <select id="areaBox2" onchange="selectStaion();">
+                                        <option value="지역">지역</option>
+                                        <option value="강남구">강남구</option>
+                                        <option value="강동구">강동구</option>
+                                        <option value="강북구">강북구</option>
+                                        <option value="강서구">강서구</option>
+                                        <option value="관악구">관악구</option>
+                                        <option value="광진구">광진구</option>
+                                        <option value="구로구">구로구</option>
+                                        <option value="금천구">금천구</option>
+                                        <option value="노원구">노원구</option>
+                                        <option value="동대문구">동대문구</option>
+                                        <option value="도봉구">도봉구</option>
+                                        <option value="동작구">동작구</option>
+                                        <option value="마포구">마포구</option>
+                                        <option value="서대문구">서대문구</option>
+                                        <option value="성동구">성동구</option>
+                                        <option value="성북구">성북구</option>
+                                        <option value="서초구">서초구</option>
+                                        <option value="송파구">송파구</option>
+                                        <option value="영등포구">영등포구</option>
+                                        <option value="양천구">양천구</option>
+                                        <option value="용산구">용산구</option>
+                                        <option value="은평구">은평구</option>
+                                        <option value="종로구">종로구</option>
+                                        <option value="중구">중구</option>
+                                        <option value="중랑구">중랑구</option>
+                                    </select>
+                                    <select id="stationBox">
+                                        <option value="역명">역명</option>
+                                        <option value="강남" class="gangnam" hidden>강남</option>
+                                        <option value="강남구청" class="gangnam" hidden>강남구청</option>
+                                        <option value="개포동" class="gangnam" disabled hidden>개포동</option>
+                                        <option value="구룡" class="gangnam" disabled hidden>구룡</option>
+                                        <option value="논현" class="gangnam" hidden>논현</option>
+                                        <option value="대모산입구" class="gangnam" disabled hidden>대모산입구</option>
+                                        <option value="대청" class="gangnam" hidden>대청</option>
+                                        <option value="대치" class="gangnam" hidden>대치</option>
+                                        <option value="도곡" class="gangnam" hidden>도곡</option>
+                                        <option value="매봉" class="gangnam" hidden>매봉</option>
+                                        <option value="봉은사" class="gangnam" hidden>봉은사</option>
+                                        <option value="삼성" class="gangnam" hidden>삼성</option>
+                                        <option value="삼성중앙" class="gangnam" hidden>삼성중앙</option>
+                                        <option value="선릉" class="gangnam" hidden>선릉</option>
+                                        <option value="선정릉" class="gangnam" hidden>선정릉</option>
+                                        <option value="수서" class="gangnam" hidden>수서</option>
+                                        <option value="신논현" class="gangnam" hidden>신논현</option>
+                                        <option value="신사" class="gangnam" hidden>신사</option> 
+                                        <option value="압구정" class="gangnam" hidden>압구정</option>
+                                        <option value="압구정로데오" class="gangnam" disabled hidden>압구정로데오</option>
+                                        <option value="언주" class="gangnam" hidden>언주</option>
+                                        <option value="역삼" class="gangnam" hidden>역삼</option>
+                                        <option value="일원" class="gangnam" hidden>일원</option>
+                                        <option value="청담" class="gangnam" hidden>청담</option>
+                                        <option value="학동" class="gangnam" hidden>학동</option>
+                                        <option value="학여울" class="gangnam" hidden>학여울</option>
+                                        <option value="한티" class="gangnam" disabled hidden>한티</option>
+                
+                                        <option value="강동" class="gangdong" hidden>강동</option>
+                                        <option value="강동구청" class="gangdong" hidden>강동구청</option>
+                                        <option value="강일" class="gangdong" hidden>강일</option>
+                                        <option value="고덕" class="gangdong" hidden>고덕</option>
+                                        <option value="굽은다리" class="gangdong" hidden>굽은다리</option>
+                                        <option value="길동" class="gangdong" hidden>길동</option>
+                                        <option value="둔촌동" class="gangdong" hidden>둔촌동</option>
+                                        <option value="명일" class="gangdong" hidden>명일</option>
+                                        <option value="상일동" class="gangdong" hidden>상일동</option>
+                                        <option value="암사" class="gangdong" hidden>암사</option>
+                                        <option value="중앙보훈병원" class="gangdong" hidden>중앙보훈병원</option>
+                                        <option value="천호" class="gangdong" hidden>천호</option>
+                
+                                        <option value="가오리" class="gangbuk" disabled hidden>가오리</option>
+                                        <option value="미아" class="gangbuk" hidden>미아</option>
+                                        <option value="미아사거리" class="gangbuk" hidden>미아사거리</option>
+                                        <option value="북한산우이" class="gangbuk" disabled hidden>북한산우이</option>
+                                        <option value="삼양" class="gangbuk" disabled hidden>삼양</option>
+                                        <option value="삼양사거리" class="gangbuk" disabled hidden>삼양사거리</option>
+                                        <option value="솔밭공원" class="gangbuk" disabled hidden>솔밭공원</option>
+                                        <option value="솔샘" class="gangbuk" disabled hidden>솔샘</option>
+                                        <option value="수유" class="gangbuk" hidden>수유</option>
+                                        <option value="화계" class="gangbuk" disabled hidden>화계</option>
+                                        <option value="4.19민주묘지" class="gangbuk" disabled hidden>4.19민주묘지</option>
+                
+                                        <option value="가양" class="gangseo" hidden>가양</option>
+                                        <option value="개화" class="gangseo" hidden>개화</option>
+                                        <option value="개화산" class="gangseo" hidden>개화산</option>
+                                        <option value="공항시장" class="gangseo" hidden>공항시장</option>
+                                        <option value="김포공항" class="gangseo" hidden>김포공항</option>
+                                        <option value="까치산" class="gangseo" hidden>까치산</option>
+                                        <option value="등촌" class="gangseo" hidden>등촌</option>
+                                        <option value="마곡" class="gangseo" hidden>마곡</option>
+                                        <option value="마곡나루" class="gangseo" hidden>마곡나루</option>
+                                        <option value="발산" class="gangseo" hidden>발산</option>
+                                        <option value="방화" class="gangseo" hidden>방화</option>
+                                        <option value="송정" class="gangseo" hidden>송정</option>
+                                        <option value="신방화" class="gangseo" hidden>신방화</option>
+                                        <option value="양천향교" class="gangseo" hidden>양천향교</option>
+                                        <option value="염창" class="gangseo" hidden>염창</option>
+                                        <option value="우장산" class="gangseo" hidden>우장산</option>
+                                        <option value="증미" class="gangseo" hidden>증미</option>
+                                        <option value="화곡" class="gangseo" hidden>화곡</option>
+                
+                                        <option value="낙성대" class="gwanak" hidden>낙성대</option>
+                                        <option value="봉천" class="gwanak" hidden>봉천</option>
+                                        <option value="서울대입구" class="gwanak" hidden>서울대입구</option>
+                                        <option value="신림" class="gwanak" hidden>신림</option>
+                
+                                        <option value="강변" class="gwangjin" hidden>강변</option>
+                                        <option value="건대입구" class="gwangjin" hidden>건대입구</option>
+                                        <option value="광나루" class="gwangjin" hidden>광나루</option>
+                                        <option value="구의" class="gwangjin" hidden>구의</option>
+                                        <option value="군자" class="gwangjin" hidden>군자</option>
+                                        <option value="뚝섬유원지" class="gwangjin" hidden>뚝섬유원지</option>
+                                        <option value="아차산" class="gwangjin" hidden>아차산</option>
+                                        <option value="어린이대공원" class="gwangjin" hidden>어린이대공원</option>
+                                        <option value="중곡" class="gwangjin" hidden>중곡</option>
+                
+                                        <option value="구로" class="guro" disabled hidden>구로</option>
+                                        <option value="구일" class="guro" disabled hidden>구일</option>
+                                        <option value="구로디지털단지" class="guro" hidden>구로디지털단지</option>
+                                        <option value="개봉" class="guro" disabled hidden>개봉</option>
+                                        <option value="남구로" class="guro" hidden>남구로</option>
+                                        <option value="대림" class="guro" hidden>대림</option>
+                                        <option value="도림천" class="guro" hidden>도림천</option>
+                                        <option value="신도림" class="guro" hidden>신도림</option>
+                                        <option value="오류동" class="guro" disabled hidden>오류동</option>
+                                        <option value="온수" class="guro" hidden>온수</option>
+                                        <option value="천왕" class="guro" hidden>천왕</option>
+                
+                                        <option value="가산디지털단지" class="geumcheon" hidden>가산디지털단지</option>
+                                        <option value="금천구청" class="geumcheon" disabled hidden>금천구청</option>
+                                        <option value="독산" class="geumcheon" disabled hidden>독산</option>
+                
+                                        <option value="공릉" class="noweon" hidden>공릉</option>
+                                        <option value="광운대" class="noweon" disabled hidden>광운대</option>
+                                        <option value="노원" class="noweon" hidden>노원</option>
+                                        <option value="녹천" class="noweon" disabled hidden>녹천</option>
+                                        <option value="당고개" class="noweon" hidden>당고개</option>
+                                        <option value="마들" class="noweon" hidden>마들</option>
+                                        <option value="상계" class="noweon" hidden>상계</option>
+                                        <option value="석계" class="noweon" hidden>석계</option>
+                                        <option value="수락산" class="noweon" hidden>수락산</option>
+                                        <option value="월계" class="noweon" disabled hidden>월계</option>
+                                        <option value="중계" class="noweon" hidden>중계</option>
+                                        <option value="태릉입구" class="noweon" hidden>태릉입구</option>
+                                        <option value="하계" class="noweon" hidden>하계</option>
+                                        <option value="화랑대" class="noweon" hidden>화랑대</option>
+                
+                                        <option value="녹천" class="dobong" disabled hidden>녹천</option>
+                                        <option value="도봉" class="dobong" disabled hidden>도봉</option>
+                                        <option value="도봉산" class="dobong" hidden>도봉산</option>
+                                        <option value="쌍문" class="dobong" hidden>쌍문</option>
+                                        <option value="방학" class="dobong" disabled hidden>방학</option>
+                                        <option value="창동" class="dobong" hidden>창동</option>
+                
+                                        <option value="고려대" class="dogndaemun" hidden>고려대</option>
+                                        <option value="답십리" class="dogndaemun" hidden>답십리</option>
+                                        <option value="동대문역사문화공원" class="dogndaemun" hidden>동대문역사문화공원</option>
+                                        <option value="신설동" class="dogndaemun" hidden>신설동</option>
+                                        <option value="신이문" class="dogndaemun" disabled hidden>신이문</option>
+                                        <option value="용두" class="dogndaemun" hidden>용두</option>
+                                        <option value="외대앞" class="dogndaemun" disabled hidden>외대앞</option>
+                                        <option value="제기동" class="dogndaemun" hidden>제기동</option>
+                                        <option value="청량리" class="dogndaemun" hidden>청량리</option>
+                                        <option value="회기" class="dogndaemun" disabled hidden>회기</option>
+                
+                                        <option value="남성" class="dongjak" hidden>남성</option>
+                                        <option value="노들" class="dongjak" hidden>노들</option>
+                                        <option value="노량진" class="dongjak" hidden>노량진</option>
+                                        <option value="대방" class="dongjak" hidden>대방</option>
+                                        <option value="동작" class="dongjak" hidden>동작</option>
+                                        <option value="보라매" class="dongjak" hidden>보라매</option>
+                                        <option value="사당" class="dongjak" hidden>사당</option>
+                                        <option value="상도" class="dongjak" hidden>상도</option>
+                                        <option value="숭실대입구" class="dongjak" hidden>숭실대입구</option>
+                                        <option value="신대방" class="dongjak" hidden>신대방</option>
+                                        <option value="신대방삼거리" class="dongjak" hidden>신대방삼거리</option>
+                                        <option value="이수" class="dongjak" hidden>이수</option>
+                                        <option value="장승배기" class="dongjak" hidden>장승배기</option>
+                                        <option value="장한평" class="dongjak" hidden>장한평</option>
+                                        <option value="총신대입구" class="dongjak" hidden>총신대입구</option>
+                                        <option value="흑석" class="dongjak" hidden>흑석</option>
+                
+                                        <option value="가좌" class="mapo" disabled hidden>가좌</option>
+                                        <option value="공덕" class="mapo" hidden>공덕</option>
+                                        <option value="광흥창" class="mapo" hidden>광흥창</option>
+                                        <option value="대흥" class="mapo" hidden>대흥</option>
+                                        <option value="디지털미디어시티" class="mapo" hidden>디지털미디어시티</option>
+                                        <option value="마포" class="mapo" hidden>마포</option>
+                                        <option value="마포구청" class="mapo" hidden>마포구청</option>
+                                        <option value="망원" class="mapo" hidden>망원</option>
+                                        <option value="상수" class="mapo" hidden>상수</option>
+                                        <option value="서강대" class="mapo" disabled hidden>서강대</option>
+                                        <option value="신촌" class="mapo" hidden>신촌(2호선)</option>
+                                        <option value="아현" class="mapo" hidden>아현</option>
+                                        <option value="애오개" class="mapo" hidden>애오개</option>
+                                        <option value="월드컵경기장" class="mapo" hidden>월드컵경기장</option>
+                                        <option value="이대" class="mapo" hidden>이대</option>
+                                        <option value="합정" class="mapo" hidden>합정</option>
+                                        <option value="홍대입구" class="mapo" hidden>홍대입구</option>
+                
+                                        <option value="가좌" class="seodaemun" disabled hidden>가좌</option>
+                                        <option value="독립문" class="seodaemun" hidden>독립문</option>
+                                        <option value="디지털미디어시티" class="seodaemun" hidden>디지털미디어시티</option>
+                                        <option value="무악재" class="seodaemun" hidden>무악재</option>
+                                        <option value="서대문" class="seodaemun" hidden>서대문</option>
+                                        <option value="신촌(경의선)" class="seodaemun" disabled hidden>신촌(경의선)</option>
+                                        <option value="신촌" class="seodaemun" hidden>신촌(2호선)</option>
+                                        <option value="아현" class="seodaemun" hidden>아현</option>
+                                        <option value="충정로" class="seodaemun" hidden>충정로</option>
+                                        <option value="홍제" class="seodaemun" hidden>홍제</option>
+                
+                                        <option value="강남" class="seocho" hidden>강남</option>
+                                        <option value="고속터미널" class="seocho" hidden>고속터미널</option>
+                                        <option value="교대" class="seocho" hidden>교대</option>
+                                        <option value="구반포" class="seocho" hidden>구반포</option>
+                                        <option value="남부터미널" class="seocho" hidden>남부터미널</option>
+                                        <option value="남태령" class="seocho" hidden>남태령</option>
+                                        <option value="내방" class="seocho" hidden>내방</option>
+                                        <option value="논현" class="seocho" hidden>논현</option>
+                                        <option value="반포" class="seocho" hidden>반포</option>
+                                        <option value="방배" class="seocho" hidden>방배</option>
+                                        <option value="사당" class="seocho" hidden>사당</option>
+                                        <option value="사평" class="seocho" hidden>사평</option>
+                                        <option value="서초" class="seocho" hidden>서초</option>
+                                        <option value="신반포" class="seocho" hidden>신반포</option>
+                                        <option value="신사" class="seocho" hidden>신사</option>
+                                        <option value="양재" class="seocho" hidden>양재</option>
+                                        <option value="양재시민의숲" class="seocho" disabled hidden>양재시민의숲</option>
+                                        <option value="이수" class="seocho" hidden>이수</option>
+                                        <option value="잠원" class="seocho" hidden>잠원</option>
+                                        <option value="청계산입구" class="seocho" disabled hidden>청계산입구</option>
+                                        <option value="총신대입구" class="seocho" hidden>총신대입구</option>
+                
+                                        <option value="군자" class="seongdong" hidden>군자</option>
+                                        <option value="금호" class="seongdong" hidden>금호</option>
+                                        <option value="답십리" class="seongdong" hidden>답십리</option>
+                                        <option value="뚝섬" class="seongdong" hidden>뚝섬</option>
+                                        <option value="마장" class="seongdong" hidden>마장</option>
+                                        <option value="상왕십리" class="seongdong" hidden>상왕십리</option>
+                                        <option value="서울숲" class="seongdong" disabled hidden>서울숲</option>
+                                        <option value="성수" class="seongdong" hidden>성수</option>
+                                        <option value="신금호" class="seongdong" hidden>신금호</option>
+                                        <option value="신답" class="seongdong" hidden>신답</option>
+                                        <option value="옥수" class="seongdong" hidden>옥수</option>
+                                        <option value="왕십리" class="seongdong" hidden>왕십리</option>
+                                        <option value="용답" class="seongdong" hidden>용답</option>
+                                        <option value="응봉" class="seongdong" disabled hidden>응봉</option>
+                                        <option value="장한평" class="seongdong" hidden>장한평</option>
+                                        <option value="한양대" class="seongdong" hidden>한양대</option>
+                                        <option value="행당" class="seongdong" hidden>행당</option>
+                
+                                        <option value="고려대" class="seongbuk" hidden>고려대</option>
+                                        <option value="길음" class="seongbuk" hidden>길음</option>
+                                        <option value="돌곶이" class="seongbuk" hidden>돌곶이</option>
+                                        <option value="보문" class="seongbuk" hidden>보문</option>
+                                        <option value="북한산보국문" class="seongbuk" disabled hidden>북한산보국문</option>
+                                        <option value="상월곡" class="seongbuk" hidden>상월곡</option>
+                                        <option value="석계" class="seongbuk" hidden>석계</option>
+                                        <option value="성신여대입구" class="seongbuk" hidden>성신여대입구</option>
+                                        <option value="안암" class="seongbuk" hidden>안암</option>
+                                        <option value="월곡" class="seongbuk" hidden>월곡</option>
+                                        <option value="정릉" class="seongbuk" disabled hidden>정릉</option>
+                                        <option value="한성대입구" class="seongbuk" hidden>한성대입구</option>
+                
+                                        <option value="가락시장" class="songpa" hidden>가락시장</option>
+                                        <option value="강동구청" class="songpa" hidden>강동구청</option>
+                                        <option value="개롱" class="songpa" hidden>개롱</option>
+                                        <option value="거여" class="songpa" hidden>거여</option>
+                                        <option value="경찰병원" class="songpa" hidden>경찰병원</option>
+                                        <option value="둔촌오류" class="songpa" hidden>둔촌오류</option>
+                                        <option value="마천" class="songpa" hidden>마천</option>
+                                        <option value="몽촌토성" class="songpa" hidden>몽촌토성</option>
+                                        <option value="문정" class="songpa" hidden>문정</option>
+                                        <option value="방이" class="songpa" hidden>방이</option>
+                                        <option value="복정" class="songpa" hidden>복정</option>
+                                        <option value="삼전" class="songpa" hidden>삼전</option>
+                                        <option value="석촌" class="songpa" hidden>석촌</option>
+                                        <option value="석촌고분" class="songpa" hidden>석촌고분</option>
+                                        <option value="송파" class="songpa" hidden>송파</option>
+                                        <option value="송파나루" class="songpa" hidden>송파나루</option>
+                                        <option value="오금" class="songpa" hidden>오금</option>
+                                        <option value="올림픽공원" class="songpa" hidden>올림픽공원</option>
+                                        <option value="잠실" class="songpa" hidden>잠실</option>
+                                        <option value="잠실나루" class="songpa" hidden>잠실나루</option>
+                                        <option value="잠실새내" class="songpa" hidden>잠실새내</option>
+                                        <option value="장지" class="songpa" hidden>장지</option>
+                                        <option value="종합운동장" class="songpa" hidden>종합운동장</option>
+                                        <option value="천호" class="songpa" hidden>천호</option>
+                                        <option value="한성백제" class="songpa" hidden>한성백제</option>
+                
+                                        <option value="목동" class="yangcheon" hidden>목동</option>
+                                        <option value="신목동" class="yangcheon" hidden>신목동</option>
+                                        <option value="신정" class="yangcheon" hidden>신정</option>
+                                        <option value="신정네거리" class="yangcheon" hidden>신정네거리</option>
+                                        <option value="양천구청" class="yangcheon" hidden>양천구청</option>
+                                        <option value="염창" class="yangcheon" hidden>염창</option>
+                                        <option value="오목교" class="yangcheon" hidden>오목교</option>
+                                        
+                                        <option value="국회의사당" class="yeongdeungpo" hidden>국회의사당</option>
+                                        <option value="당산" class="yeongdeungpo" hidden>당산</option>
+                                        <option value="대방" class="yeongdeungpo" hidden>대방</option>
+                                        <option value="대림" class="yeongdeungpo" hidden>대림</option>
+                                        <option value="문래" class="yeongdeungpo" hidden>문래</option>
+                                        <option value="보라매" class="yeongdeungpo" hidden>보라매</option>
+                                        <option value="샛강" class="yeongdeungpo" hidden>샛강</option>
+                                        <option value="선유도" class="yeongdeungpo" hidden>선유도</option>
+                                        <option value="신길" class="yeongdeungpo" hidden>신길</option>
+                                        <option value="신풍" class="yeongdeungpo" hidden>신풍</option>
+                                        <option value="양평" class="yeongdeungpo" hidden>양평</option>
+                                        <option value="여의나루" class="yeongdeungpo" hidden>여의나루</option>
+                                        <option value="여의도" class="yeongdeungpo" hidden>여의도</option>
+                                        <option value="영등포" class="yeongdeungpo" disabled hidden>영등포</option>
+                                        <option value="영등포구청" class="yeongdeungpo" hidden>영등포구청</option>
+                                        <option value="영등포시장" class="yeongdeungpo" hidden>영등포시장</option>
+                
+                                        <option value="남영" class="yongsan" disabled hidden>남영</option>
+                                        <option value="녹사평" class="yongsan" hidden>녹사평</option>
+                                        <option value="삼각지" class="yongsan" hidden>삼각지</option>
+                                        <option value="서빙고" class="yongsan" disabled hidden>서빙고</option>
+                                        <option value="서울" class="yongsan" hidden>서울</option>
+                                        <option value="숙대입구" class="yongsan" hidden>숙대입구</option>
+                                        <option value="신용산" class="yongsan" hidden>신용산</option>
+                                        <option value="용산" class="yongsan" disabled hidden>용산</option>
+                                        <option value="이촌" class="yongsan" hidden>이촌</option>
+                                        <option value="이태원" class="yongsan" hidden>이태원</option>
+                                        <option value="한강진" class="yongsan" hidden>한강진</option>
+                                        <option value="한남" class="yongsan" disabled hidden>한남</option>
+                                        <option value="효창공원앞" class="yongsan" hidden>효창공원앞</option>
+                
+                                        <option value="구산" class="eunpyeong" hidden>구산</option>
+                                        <option value="구파발" class="eunpyeong" hidden>구파발</option>
+                                        <option value="녹번" class="eunpyeong" hidden>녹번</option>
+                                        <option value="독바위" class="eunpyeong" hidden>독바위</option>
+                                        <option value="디지털미디어시티" class="eunpyeong" hidden>디지털미디어시티</option>
+                                        <option value="불광" class="eunpyeong" hidden>불광</option>
+                                        <option value="새절" class="eunpyeong" hidden>새절</option>
+                                        <option value="수색" class="eunpyeong" disabled hidden>수색</option>
+                                        <option value="역촌" class="eunpyeong" hidden>역촌</option>
+                                        <option value="연신내" class="eunpyeong" hidden>연신내</option>
+                                        <option value="응암" class="eunpyeong" hidden>응암</option>
+                                        <option value="증산" class="eunpyeong" hidden>증산</option>
+                
+                                        <option value="경복궁" class="jongno" hidden>경복궁</option>
+                                        <option value="광화문" class="jongno" hidden>광화문</option>
+                                        <option value="동대문" class="jongno" hidden>동대문</option>
+                                        <option value="동묘앞" class="jongno" hidden>동묘앞</option>
+                                        <option value="서대문" class="jongno" hidden>서대문</option>
+                                        <option value="안국" class="jongno" hidden>안국</option>
+                                        <option value="종각" class="jongno" hidden>종각</option>
+                                        <option value="종로3가" class="jongno" hidden>종로3가</option>
+                                        <option value="종로5가" class="jongno" hidden>종로5가</option>
+                                        <option value="창신" class="jongno" hidden>창신</option>
+                                        <option value="혜화" class="jongno" hidden>혜화</option>
+                
+                                        <option value="동대문역사문화공원" class="jung" hidden>동대문역사문화공원</option>
+                                        <option value="동대입구" class="jung" hidden>동대입구</option>
+                                        <option value="명동" class="jung" hidden>명동</option>
+                                        <option value="버티고개" class="jung" hidden>버티고개</option>
+                                        <option value="서울" class="jung" hidden>서울</option>
+                                        <option value="시청" class="jung" hidden>시청</option>
+                                        <option value="신당" class="jung" hidden>신당</option>
+                                        <option value="약수" class="jung" hidden>약수</option>
+                                        <option value="을지로3가" class="jung" hidden>을지로3가</option>
+                                        <option value="을지로4가" class="jung" hidden>을지로4가</option>
+                                        <option value="을지로입구" class="jung" hidden>을지로입구</option>
+                                        <option value="청구" class="jung" hidden>청구</option>
+                                        <option value="충무로" class="jung" hidden>충무로</option>
+                                        <option value="회현" class="jung" hidden>회현</option>
+                
+                                        <option value="망우" class="jungnang" disabled hidden>망우</option>
+                                        <option value="먹골" class="jungnang" hidden>먹골</option>
+                                        <option value="면목" class="jungnang" hidden>면목</option>
+                                        <option value="봉화산" class="jungnang" hidden>봉화산</option>
+                                        <option value="사가정" class="jungnang" hidden>사가정</option>
+                                        <option value="상봉" class="jungnang" hidden>상봉</option>
+                                        <option value="신내" class="jungnang" hidden>신내</option>
+                                        <option value="양원" class="jungnang" disabled hidden>양원</option>
+                                        <option value="용마산" class="jungnang" hidden>용마산</option>
+                                        <option value="중랑" class="jungnang" disabled hidden>중랑</option>
+                                        <option value="중화" class="jungnang" hidden>중화</option>
+                                        <option value="태릉입구" class="jungnang" hidden>태릉입구</option>
+                                        <option value="화랑대" class="jungnang" hidden>화랑대</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h2>추천지역 : </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <table width="100%" class="table">
+                            <tr>
+                                <td>
+                                    <h2>그래프삽입 위치</h2>
+                                </td>
+                                <td>
+                                    <h2>지도 삽입 위치</h2>
+                                </td>
+                            </tr>
+                        </table>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h2>...</h2>
+                        </td>
+                    </tr>
+               </table>
             </div>
-            <div>
-                <div class="selectMenu">
-                    <label><input type="checkbox" name="c1">경쟁업종 수</label>
-                    <label><input type="checkbox" name="c2">생존율</label><br></br>
-                    <label><input type="checkbox" name="c3">유동인구 수 평균</label>
-                    <select id="areaBox2" onchange="selectStaion();">
-                        <option value="지역">지역</option>
-                        <option value="강남구">강남구</option>
-                        <option value="강동구">강동구</option>
-                        <option value="강북구">강북구</option>
-                        <option value="강서구">강서구</option>
-                        <option value="관악구">관악구</option>
-                        <option value="광진구">광진구</option>
-                        <option value="구로구">구로구</option>
-                        <option value="금천구">금천구</option>
-                        <option value="노원구">노원구</option>
-                        <option value="동대문구">동대문구</option>
-                        <option value="도봉구">도봉구</option>
-                        <option value="동작구">동작구</option>
-                        <option value="마포구">마포구</option>
-                        <option value="서대문구">서대문구</option>
-                        <option value="성동구">성동구</option>
-                        <option value="성북구">성북구</option>
-                        <option value="서초구">서초구</option>
-                        <option value="송파구">송파구</option>
-                        <option value="영등포구">영등포구</option>
-                        <option value="양천구">양천구</option>
-                        <option value="은평구">은평구</option>
-                        <option value="종로구">종로구</option>
-                        <option value="중구">중구</option>
-                        <option value="중랑구">중랑구</option>
-                    </select>
-                    <select id="stationBox">
-                        <option value="역명">역명</option>
-                        <option value="강남" class="gangnam" hidden>강남</option>
-                        <option value="강남구청" class="gangnam" hidden>강남구청</option>
-                        <option value="개포동" class="gangnam" disabled hidden>개포동</option>
-                        <option value="구룡" class="gangnam" disabled hidden>구룡</option>
-                        <option value="논현" class="gangnam" hidden>논현</option>
-                        <option value="대모산입구" class="gangnam" disabled hidden>대모산입구</option>
-                        <option value="대청" class="gangnam" hidden>대청</option>
-                        <option value="대치" class="gangnam" hidden>대치</option>
-                        <option value="도곡" class="gangnam" hidden>도곡</option>
-                        <option value="매봉" class="gangnam" hidden>매봉</option>
-                        <option value="봉은사" class="gangnam" hidden>봉은사</option>
-                        <option value="삼성" class="gangnam" hidden>삼성</option>
-                        <option value="삼성중앙" class="gangnam" hidden>삼성중앙</option>
-                        <option value="선릉" class="gangnam" hidden>선릉</option>
-                        <option value="선정릉" class="gangnam" hidden>선정릉</option>
-                        <option value="수서" class="gangnam" hidden>수서</option>
-                        <option value="신논현" class="gangnam" hidden>신논현</option>
-                        <option value="신사" class="gangnam" hidden>신사</option> 
-                        <option value="압구정" class="gangnam" hidden>압구정</option>
-                        <option value="압구정로데오" class="gangnam" disabled hidden>압구정로데오</option>
-                        <option value="언주" class="gangnam" hidden>언주</option>
-                        <option value="역삼" class="gangnam" hidden>역삼</option>
-                        <option value="일원" class="gangnam" hidden>일원</option>
-                        <option value="청담" class="gangnam" hidden>청담</option>
-                        <option value="학동" class="gangnam" hidden>학동</option>
-                        <option value="학여울" class="gangnam" hidden>학여울</option>
-                        <option value="한티" class="gangnam" disabled hidden>한티</option>
 
-                        <option value="강동" class="gangdong" hidden>강동</option>
-                        <option value="강동구청" class="gangdong" hidden>강동구청</option>
-                        <option value="강일" class="gangdong" hidden>강일</option>
-                        <option value="고덕" class="gangdong" hidden>고덕</option>
-                        <option value="굽은다리" class="gangdong" hidden>굽은다리</option>
-                        <option value="길동" class="gangdong" hidden>길동</option>
-                        <option value="둔촌동" class="gangdong" hidden>둔촌동</option>
-                        <option value="명일" class="gangdong" hidden>명일</option>
-                        <option value="상일동" class="gangdong" hidden>상일동</option>
-                        <option value="암사" class="gangdong" hidden>암사</option>
-                        <option value="중앙보훈병원" class="gangdong" hidden>중앙보훈병원</option>
-                        <option value="천호" class="gangdong" hidden>천호</option>
 
-                        <option value="가오리" class="gangbuk" disabled hidden>가오리</option>
-                        <option value="미아" class="gangbuk" hidden>미아</option>
-                        <option value="미아사거리" class="gangbuk" hidden>미아사거리</option>
-                        <option value="북한산우이" class="gangbuk" disabled hidden>북한산우이</option>
-                        <option value="삼양" class="gangbuk" disabled hidden>삼양</option>
-                        <option value="삼양사거리" class="gangbuk" disabled hidden>삼양사거리</option>
-                        <option value="솔밭공원" class="gangbuk" disabled hidden>솔밭공원</option>
-                        <option value="솔샘" class="gangbuk" disabled hidden>솔샘</option>
-                        <option value="수유" class="gangbuk" hidden>수유</option>
-                        <option value="화계" class="gangbuk" disabled hidden>화계</option>
-                        <option value="4.19민주묘지" class="gangbuk" disabled hidden>4.19민주묘지</option>
 
-                        <option value="가양" class="gangseo" hidden>가양</option>
-                        <option value="개화" class="gangseo" hidden>개화</option>
-                        <option value="개화산" class="gangseo" hidden>개화산</option>
-                        <option value="공항시장" class="gangseo" hidden>공항시장</option>
-                        <option value="김포공항" class="gangseo" hidden>김포공항</option>
-                        <option value="까치산" class="gangseo" hidden>까치산</option>
-                        <option value="등촌" class="gangseo" hidden>등촌</option>
-                        <option value="마곡" class="gangseo" hidden>마곡</option>
-                        <option value="마곡나루" class="gangseo" hidden>마곡나루</option>
-                        <option value="발산" class="gangseo" hidden>발산</option>
-                        <option value="방화" class="gangseo" hidden>방화</option>
-                        <option value="송정" class="gangseo" hidden>송정</option>
-                        <option value="신방화" class="gangseo" hidden>신방화</option>
-                        <option value="양천향교" class="gangseo" hidden>양천향교</option>
-                        <option value="염창" class="gangseo" hidden>염창</option>
-                        <option value="우장산" class="gangseo" hidden>우장산</option>
-                        <option value="증미" class="gangseo" hidden>증미</option>
-                        <option value="화곡" class="gangseo" hidden>화곡</option>
-
-                        <option value="낙성대" class="gwanak" hidden>낙성대</option>
-                        <option value="봉천" class="gwanak" hidden>봉천</option>
-                        <option value="서울대입구" class="gwanak" hidden>서울대입구</option>
-                        <option value="신림" class="gwanak" hidden>신림</option>
-
-                        <option value="강변" class="gwangjin" hidden>강변</option>
-                        <option value="건대입구" class="gwangjin" hidden>건대입구</option>
-                        <option value="광나루" class="gwangjin" hidden>광나루</option>
-                        <option value="구의" class="gwangjin" hidden>구의</option>
-                        <option value="군자" class="gwangjin" hidden>군자</option>
-                        <option value="뚝섬유원지" class="gwangjin" hidden>뚝섬유원지</option>
-                        <option value="아차산" class="gwangjin" hidden>아차산</option>
-                        <option value="어린이대공원" class="gwangjin" hidden>어린이대공원</option>
-                        <option value="중곡" class="gwangjin" hidden>중곡</option>
-
-                        <option value="구로" class="guro" disabled hidden>구로</option>
-                        <option value="구일" class="guro" disabled hidden>구일</option>
-                        <option value="구로디지털단지" class="guro" hidden>구로디지털단지</option>
-                        <option value="개봉" class="guro" disabled hidden>개봉</option>
-                        <option value="남구로" class="guro" hidden>남구로</option>
-                        <option value="대림" class="guro" hidden>대림</option>
-                        <option value="도림천" class="guro" hidden>도림천</option>
-                        <option value="신도림" class="guro" hidden>신도림</option>
-                        <option value="오류동" class="guro" disabled hidden>오류동</option>
-                        <option value="온수" class="guro" hidden>온수</option>
-                        <option value="천왕" class="guro" hidden>천왕</option>
-
-                        <option value="가산디지털단지" class="geumcheon" hidden>가산디지털단지</option>
-                        <option value="금천구청" class="geumcheon" disabled hidden>금천구청</option>
-                        <option value="독산" class="geumcheon" disabled hidden>독산</option>
-
-                        <option value="공릉" class="noweon" hidden>공릉</option>
-                        <option value="광운대" class="noweon" disabled hidden>광운대</option>
-                        <option value="노원" class="noweon" hidden>노원</option>
-                        <option value="녹천" class="noweon" disabled hidden>녹천</option>
-                        <option value="당고개" class="noweon" hidden>당고개</option>
-                        <option value="마들" class="noweon" hidden>마들</option>
-                        <option value="상계" class="noweon" hidden>상계</option>
-                        <option value="석계" class="noweon" hidden>석계</option>
-                        <option value="수락산" class="noweon" hidden>수락산</option>
-                        <option value="월계" class="noweon" disabled hidden>월계</option>
-                        <option value="중계" class="noweon" hidden>중계</option>
-                        <option value="태릉입구" class="noweon" hidden>태릉입구</option>
-                        <option value="하계" class="noweon" hidden>하계</option>
-                        <option value="화랑대" class="noweon" hidden>화랑대</option>
-
-                        <option value="녹천" class="dobong" disabled hidden>녹천</option>
-                        <option value="도봉" class="dobong" disabled hidden>도봉</option>
-                        <option value="도봉산" class="dobong" hidden>도봉산</option>
-                        <option value="쌍문" class="dobong" hidden>쌍문</option>
-                        <option value="방학" class="dobong" disabled hidden>방학</option>
-                        <option value="창동" class="dobong" hidden>창동</option>
-
-                        <option value="고려대" class="dogndaemun" hidden>고려대</option>
-                        <option value="답십리" class="dogndaemun" hidden>답십리</option>
-                        <option value="동대문역사문화공원" class="dogndaemun" hidden>동대문역사문화공원</option>
-                        <option value="신설동" class="dogndaemun" hidden>신설동</option>
-                        <option value="신이문" class="dogndaemun" disabled hidden>신이문</option>
-                        <option value="용두" class="dogndaemun" hidden>용두</option>
-                        <option value="외대앞" class="dogndaemun" disabled hidden>외대앞</option>
-                        <option value="제기동" class="dogndaemun" hidden>제기동</option>
-                        <option value="청량리" class="dogndaemun" hidden>청량리</option>
-                        <option value="회기" class="dogndaemun" disabled hidden>회기</option>
-
-                        <option value="남성" class="dongjak" hidden>남성</option>
-                        <option value="노들" class="dongjak" hidden>노들</option>
-                        <option value="노량진" class="dongjak" hidden>노량진</option>
-                        <option value="대방" class="dongjak" hidden>대방</option>
-                        <option value="동작" class="dongjak" hidden>동작</option>
-                        <option value="보라매" class="dongjak" hidden>보라매</option>
-                        <option value="사당" class="dongjak" hidden>사당</option>
-                        <option value="상도" class="dongjak" hidden>상도</option>
-                        <option value="숭실대입구" class="dongjak" hidden>숭실대입구</option>
-                        <option value="신대방" class="dongjak" hidden>신대방</option>
-                        <option value="신대방삼거리" class="dongjak" hidden>신대방삼거리</option>
-                        <option value="이수" class="dongjak" hidden>이수</option>
-                        <option value="장승배기" class="dongjak" hidden>장승배기</option>
-                        <option value="장한평" class="dongjak" hidden>장한평</option>
-                        <option value="총신대입구" class="dongjak" hidden>총신대입구</option>
-                        <option value="흑석" class="dongjak" hidden>흑석</option>
-
-                        <option value="가좌" class="mapo" disabled hidden>가좌</option>
-                        <option value="공덕" class="mapo" hidden>공덕</option>
-                        <option value="광흥창" class="mapo" hidden>광흥창</option>
-                        <option value="대흥" class="mapo" hidden>대흥</option>
-                        <option value="디지털미디어시티" class="mapo" hidden>디지털미디어시티</option>
-                        <option value="마포" class="mapo" hidden>마포</option>
-                        <option value="마포구청" class="mapo" hidden>마포구청</option>
-                        <option value="망원" class="mapo" hidden>망원</option>
-                        <option value="상수" class="mapo" hidden>상수</option>
-                        <option value="서강대" class="mapo" disabled hidden>서강대</option>
-                        <option value="신촌" class="mapo" hidden>신촌(2호선)</option>
-                        <option value="아현" class="mapo" hidden>아현</option>
-                        <option value="애오개" class="mapo" hidden>애오개</option>
-                        <option value="월드컵경기장" class="mapo" hidden>월드컵경기장</option>
-                        <option value="이대" class="mapo" hidden>이대</option>
-                        <option value="합정" class="mapo" hidden>합정</option>
-                        <option value="홍대입구" class="mapo" hidden>홍대입구</option>
-
-                        <option value="가좌" class="seodaemun" disabled hidden>가좌</option>
-                        <option value="독립문" class="seodaemun" hidden>독립문</option>
-                        <option value="디지털미디어시티" class="seodaemun" hidden>디지털미디어시티</option>
-                        <option value="무악재" class="seodaemun" hidden>무악재</option>
-                        <option value="서대문" class="seodaemun" hidden>서대문</option>
-                        <option value="신촌(경의선)" class="seodaemun" disabled hidden>신촌(경의선)</option>
-                        <option value="신촌" class="seodaemun" hidden>신촌(2호선)</option>
-                        <option value="아현" class="seodaemun" hidden>아현</option>
-                        <option value="충정로" class="seodaemun" hidden>충정로</option>
-                        <option value="홍제" class="seodaemun" hidden>홍제</option>
-
-                        <option value="강남" class="seocho" hidden>강남</option>
-                        <option value="고속터미널" class="seocho" hidden>고속터미널</option>
-                        <option value="교대" class="seocho" hidden>교대</option>
-                        <option value="구반포" class="seocho" hidden>구반포</option>
-                        <option value="남부터미널" class="seocho" hidden>남부터미널</option>
-                        <option value="남태령" class="seocho" hidden>남태령</option>
-                        <option value="내방" class="seocho" hidden>내방</option>
-                        <option value="논현" class="seocho" hidden>논현</option>
-                        <option value="반포" class="seocho" hidden>반포</option>
-                        <option value="방배" class="seocho" hidden>방배</option>
-                        <option value="사당" class="seocho" hidden>사당</option>
-                        <option value="사평" class="seocho" hidden>사평</option>
-                        <option value="서초" class="seocho" hidden>서초</option>
-                        <option value="신반포" class="seocho" hidden>신반포</option>
-                        <option value="신사" class="seocho" hidden>신사</option>
-                        <option value="양재" class="seocho" hidden>양재</option>
-                        <option value="양재시민의숲" class="seocho" disabled hidden>양재시민의숲</option>
-                        <option value="이수" class="seocho" hidden>이수</option>
-                        <option value="잠원" class="seocho" hidden>잠원</option>
-                        <option value="청계산입구" class="seocho" disabled hidden>청계산입구</option>
-                        <option value="총신대입구" class="seocho" hidden>총신대입구</option>
-
-                        <option value="군자" class="seongdong" hidden>군자</option>
-                        <option value="금호" class="seongdong" hidden>금호</option>
-                        <option value="답십리" class="seongdong" hidden>답십리</option>
-                        <option value="뚝섬" class="seongdong" hidden>뚝섬</option>
-                        <option value="마장" class="seongdong" hidden>마장</option>
-                        <option value="상왕십리" class="seongdong" hidden>상왕십리</option>
-                        <option value="서울숲" class="seongdong" disabled hidden>서울숲</option>
-                        <option value="성수" class="seongdong" hidden>성수</option>
-                        <option value="신금호" class="seongdong" hidden>신금호</option>
-                        <option value="신답" class="seongdong" hidden>신답</option>
-                        <option value="옥수" class="seongdong" hidden>옥수</option>
-                        <option value="왕십리" class="seongdong" hidden>왕십리</option>
-                        <option value="용답" class="seongdong" hidden>용답</option>
-                        <option value="응봉" class="seongdong" disabled hidden>응봉</option>
-                        <option value="장한평" class="seongdong" hidden>장한평</option>
-                        <option value="한양대" class="seongdong" hidden>한양대</option>
-                        <option value="행당" class="seongdong" hidden>행당</option>
-
-                        <option value="고려대" class="seongbuk" hidden>고려대</option>
-                        <option value="길음" class="seongbuk" hidden>길음</option>
-                        <option value="돌곶이" class="seongbuk" hidden>돌곶이</option>
-                        <option value="보문" class="seongbuk" hidden>보문</option>
-                        <option value="북한산보국문" class="seongbuk" disabled hidden>북한산보국문</option>
-                        <option value="상월곡" class="seongbuk" hidden>상월곡</option>
-                        <option value="석계" class="seongbuk" hidden>석계</option>
-                        <option value="성신여대입구" class="seongbuk" hidden>성신여대입구</option>
-                        <option value="안암" class="seongbuk" hidden>안암</option>
-                        <option value="월곡" class="seongbuk" hidden>월곡</option>
-                        <option value="정릉" class="seongbuk" disabled hidden>정릉</option>
-                        <option value="한성대입구" class="seongbuk" hidden>한성대입구</option>
-
-                        <option value="가락시장" class="songpa" hidden>가락시장</option>
-                        <option value="강동구청" class="songpa" hidden>강동구청</option>
-                        <option value="개롱" class="songpa" hidden>개롱</option>
-                        <option value="거여" class="songpa" hidden>거여</option>
-                        <option value="경찰병원" class="songpa" hidden>경찰병원</option>
-                        <option value="둔촌오류" class="songpa" hidden>둔촌오류</option>
-                        <option value="마천" class="songpa" hidden>마천</option>
-                        <option value="몽촌토성" class="songpa" hidden>몽촌토성</option>
-                        <option value="문정" class="songpa" hidden>문정</option>
-                        <option value="방이" class="songpa" hidden>방이</option>
-                        <option value="복정" class="songpa" hidden>복정</option>
-                        <option value="삼전" class="songpa" hidden>삼전</option>
-                        <option value="석촌" class="songpa" hidden>석촌</option>
-                        <option value="석촌고분" class="songpa" hidden>석촌고분</option>
-                        <option value="송파" class="songpa" hidden>송파</option>
-                        <option value="송파나루" class="songpa" hidden>송파나루</option>
-                        <option value="오금" class="songpa" hidden>오금</option>
-                        <option value="올림픽공원" class="songpa" hidden>올림픽공원</option>
-                        <option value="잠실" class="songpa" hidden>잠실</option>
-                        <option value="잠실나루" class="songpa" hidden>잠실나루</option>
-                        <option value="잠실새내" class="songpa" hidden>잠실새내</option>
-                        <option value="장지" class="songpa" hidden>장지</option>
-                        <option value="종합운동장" class="songpa" hidden>종합운동장</option>
-                        <option value="천호" class="songpa" hidden>천호</option>
-                        <option value="한성백제" class="songpa" hidden>한성백제</option>
-
-                        <option value="목동" class="yangcheon" hidden>목동</option>
-                        <option value="신목동" class="yangcheon" hidden>신목동</option>
-                        <option value="신정" class="yangcheon" hidden>신정</option>
-                        <option value="신정네거리" class="yangcheon" hidden>신정네거리</option>
-                        <option value="양천구청" class="yangcheon" hidden>양천구청</option>
-                        <option value="염창" class="yangcheon" hidden>염창</option>
-                        <option value="오목교" class="yangcheon" hidden>오목교</option>
-                        
-                        <option value="국회의사당" class="yeongdeungpo" hidden>국회의사당</option>
-                        <option value="당산" class="yeongdeungpo" hidden>당산</option>
-                        <option value="대방" class="yeongdeungpo" hidden>대방</option>
-                        <option value="대림" class="yeongdeungpo" hidden>대림</option>
-                        <option value="문래" class="yeongdeungpo" hidden>문래</option>
-                        <option value="보라매" class="yeongdeungpo" hidden>보라매</option>
-                        <option value="샛강" class="yeongdeungpo" hidden>샛강</option>
-                        <option value="선유도" class="yeongdeungpo" hidden>선유도</option>
-                        <option value="신길" class="yeongdeungpo" hidden>신길</option>
-                        <option value="신풍" class="yeongdeungpo" hidden>신풍</option>
-                        <option value="양평" class="yeongdeungpo" hidden>양평</option>
-                        <option value="여의나루" class="yeongdeungpo" hidden>여의나루</option>
-                        <option value="여의도" class="yeongdeungpo" hidden>여의도</option>
-                        <option value="영등포" class="yeongdeungpo" disabled hidden>영등포</option>
-                        <option value="영등포구청" class="yeongdeungpo" hidden>영등포구청</option>
-                        <option value="영등포시장" class="yeongdeungpo" hidden>영등포시장</option>
-
-                        <option value="남영" class="yongsan" disabled hidden>남영</option>
-                        <option value="녹사평" class="yongsan" hidden>녹사평</option>
-                        <option value="삼각지" class="yongsan" hidden>삼각지</option>
-                        <option value="서빙고" class="yongsan" disabled hidden>서빙고</option>
-                        <option value="서울" class="yongsan" hidden>서울</option>
-                        <option value="숙대입구" class="yongsan" hidden>숙대입구</option>
-                        <option value="신용산" class="yongsan" hidden>신용산</option>
-                        <option value="용산" class="yongsan" disabled hidden>용산</option>
-                        <option value="이촌" class="yongsan" hidden>이촌</option>
-                        <option value="이태원" class="yongsan" hidden>이태원</option>
-                        <option value="한강진" class="yongsan" hidden>한강진</option>
-                        <option value="한남" class="yongsan" disabled hidden>한남</option>
-                        <option value="효창공원앞" class="yongsan" hidden>효창공원앞</option>
-
-                        <option value="구산" class="eunpyeong" hidden>구산</option>
-                        <option value="구파발" class="eunpyeong" hidden>구파발</option>
-                        <option value="녹번" class="eunpyeong" hidden>녹번</option>
-                        <option value="독바위" class="eunpyeong" hidden>독바위</option>
-                        <option value="디지털미디어시티" class="eunpyeong" hidden>디지털미디어시티</option>
-                        <option value="불광" class="eunpyeong" hidden>불광</option>
-                        <option value="새절" class="eunpyeong" hidden>새절</option>
-                        <option value="수색" class="eunpyeong" disabled hidden>수색</option>
-                        <option value="역촌" class="eunpyeong" hidden>역촌</option>
-                        <option value="연신내" class="eunpyeong" hidden>연신내</option>
-                        <option value="응암" class="eunpyeong" hidden>응암</option>
-                        <option value="증산" class="eunpyeong" hidden>증산</option>
-
-                        <option value="경복궁" class="jongno" hidden>경복궁</option>
-                        <option value="광화문" class="jongno" hidden>광화문</option>
-                        <option value="동대문" class="jongno" hidden>동대문</option>
-                        <option value="동묘앞" class="jongno" hidden>동묘앞</option>
-                        <option value="서대문" class="jongno" hidden>서대문</option>
-                        <option value="안국" class="jongno" hidden>안국</option>
-                        <option value="종각" class="jongno" hidden>종각</option>
-                        <option value="종로3가" class="jongno" hidden>종로3가</option>
-                        <option value="종로5가" class="jongno" hidden>종로5가</option>
-                        <option value="창신" class="jongno" hidden>창신</option>
-                        <option value="혜화" class="jongno" hidden>혜화</option>
-
-                        <option value="동대문역사문화공원" class="jung" hidden>동대문역사문화공원</option>
-                        <option value="동대입구" class="jung" hidden>동대입구</option>
-                        <option value="명동" class="jung" hidden>명동</option>
-                        <option value="버티고개" class="jung" hidden>버티고개</option>
-                        <option value="서울" class="jung" hidden>서울</option>
-                        <option value="시청" class="jung" hidden>시청</option>
-                        <option value="신당" class="jung" hidden>신당</option>
-                        <option value="약수" class="jung" hidden>약수</option>
-                        <option value="을지로3가" class="jung" hidden>을지로3가</option>
-                        <option value="을지로4가" class="jung" hidden>을지로4가</option>
-                        <option value="을지로입구" class="jung" hidden>을지로입구</option>
-                        <option value="청구" class="jung" hidden>청구</option>
-                        <option value="충무로" class="jung" hidden>충무로</option>
-                        <option value="회현" class="jung" hidden>회현</option>
-
-                        <option value="망우" class="jungnang" disabled hidden>망우</option>
-                        <option value="먹골" class="jungnang" hidden>먹골</option>
-                        <option value="면목" class="jungnang" hidden>면목</option>
-                        <option value="봉화산" class="jungnang" hidden>봉화산</option>
-                        <option value="사가정" class="jungnang" hidden>사가정</option>
-                        <option value="상봉" class="jungnang" hidden>상봉</option>
-                        <option value="신내" class="jungnang" hidden>신내</option>
-                        <option value="양원" class="jungnang" disabled hidden>양원</option>
-                        <option value="용마산" class="jungnang" hidden>용마산</option>
-                        <option value="중랑" class="jungnang" disabled hidden>중랑</option>
-                        <option value="중화" class="jungnang" hidden>중화</option>
-                        <option value="태릉입구" class="jungnang" hidden>태릉입구</option>
-                        <option value="화랑대" class="jungnang" hidden>화랑대</option>
-                    </select>
-                    <select id="timeBox">
-                        <option value="시간대">시간대</option>
-                        <option value="아침">아침(7~12)</option>
-                        <option value="점심">점심(12~14)</option>
-                        <option value="오후">오후(14~19)</option>
-                        <option value="저녁">저녁(19~24)</option>
-                    </select><br></br>
-                    <label><input type="checkbox" name="c5">공시지가 평균</label><br></br>
-                    <label><input type="checkbox" name="c7">종합 스코어</label>
-
-                </div>
-                <div class = "main">
-                    <div class="chart">
-        
-                    </div>
-        
-        
-                </div>
-                <div class = "cradit">
-                    <p>선문대학교 컴퓨터공학부 2021년도 오픈소스프로젝트</p>
-                    <p>개발자 : 이규섭(대표) 박영우 박건순 정원우</p>
-                    <p>문의 : 010-1023-6974</p>
-                </div>
-            </div>
-            
+        </div>
+        <div class = "cradit">
+            <p>선문대학교 컴퓨터공학부 2021년도 오픈소스프로젝트</p>
+            <p>개발자 : 이규섭(대표) 박영우 박건순 정원우</p>
+            <p>문의 : 010-1023-6974</p>
         </div>
     </body>
 </html>
