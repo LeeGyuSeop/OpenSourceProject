@@ -182,3 +182,29 @@ function selectStaion(){
     }
 
 }
+
+var send;
+var sendChart;
+
+function startAnalysis(){
+    var area = document.getElementById("areaBox2");
+    // send = {{ }}; // 파이썬코드 변수명 삽입
+    var value = area.options[area.selectedIndex].value;
+
+    for(var i=0;i<area.length;i++){
+        if(send[i] == value){
+            area[i].hidden = false;
+        }
+    }
+}
+
+function setChart(){
+    var area = document.getElementById("areaBox2");
+    var station = document.getElementById("stationBox");
+    var space = document.getElementById("chart");
+    // sendChart = {{ }} // 그래프 이미지 삽입
+
+    // 자치구, 역별 조건 분기 코드 필요
+
+    space.innerHTML("<img src='이미지경로 삽입'>");
+}

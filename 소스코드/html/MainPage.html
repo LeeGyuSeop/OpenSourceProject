@@ -18,7 +18,7 @@
                         <td width="30%">
                             <div class="selectMenu">
                                 <div class="centerSort">
-                                    <d>업종과 시간대를 선택해주세요</d><br></br>
+                                    <a>업종과 시간대를 선택해주세요<a><br></br>
                                     <select id="selectBox1" onchange="selectBusinessType();">
                                         <option value="대분류 업종">대분류 업종</option>
                                         <option value="음식">음식</option>
@@ -139,35 +139,47 @@
                                         <option value="오후">오후(14~19)</option>
                                         <option value="저녁">저녁(19~24)</option>
                                     </select>
-                                    <input type="button" name="selectSuccess" value="선택완료" onclick="viewChart();"/><br></br>
+                                    <input type="button" name="selectSuccess" value="선택완료" onclick="startAnalysis();"/><br></br>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h2>선택지역</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <table width="100%" class="table">
+                            <tr>
+                                <td width="10%">
+                                    <h2>선택옵션 위치</h2>
                                     <select id="areaBox2" onchange="selectStaion();">
-                                        <option value="지역">지역</option>
-                                        <option value="강남구">강남구</option>
-                                        <option value="강동구">강동구</option>
-                                        <option value="강북구">강북구</option>
-                                        <option value="강서구">강서구</option>
-                                        <option value="관악구">관악구</option>
-                                        <option value="광진구">광진구</option>
-                                        <option value="구로구">구로구</option>
-                                        <option value="금천구">금천구</option>
-                                        <option value="노원구">노원구</option>
-                                        <option value="동대문구">동대문구</option>
-                                        <option value="도봉구">도봉구</option>
-                                        <option value="동작구">동작구</option>
-                                        <option value="마포구">마포구</option>
-                                        <option value="서대문구">서대문구</option>
-                                        <option value="성동구">성동구</option>
-                                        <option value="성북구">성북구</option>
-                                        <option value="서초구">서초구</option>
-                                        <option value="송파구">송파구</option>
-                                        <option value="영등포구">영등포구</option>
-                                        <option value="양천구">양천구</option>
-                                        <option value="용산구">용산구</option>
-                                        <option value="은평구">은평구</option>
-                                        <option value="종로구">종로구</option>
-                                        <option value="중구">중구</option>
-                                        <option value="중랑구">중랑구</option>
-                                    </select>
+                                        <option value="추천지역">추천지역</option>
+                                        <option value="강남구" hidden>강남구</option>
+                                        <option value="강동구" hidden>강동구</option>
+                                        <option value="강북구" hidden>강북구</option>
+                                        <option value="강서구" hidden>강서구</option>
+                                        <option value="관악구" hidden>관악구</option>
+                                        <option value="광진구" hidden>광진구</option>
+                                        <option value="구로구" hidden>구로구</option>
+                                        <option value="금천구" hidden>금천구</option>
+                                        <option value="노원구" hidden>노원구</option>
+                                        <option value="동대문구" hidden>동대문구</option>
+                                        <option value="도봉구" hidden>도봉구</option>
+                                        <option value="동작구" hidden>동작구</option>
+                                        <option value="마포구" hidden>마포구</option>
+                                        <option value="서대문구" hidden>서대문구</option>
+                                        <option value="성동구" hidden>성동구</option>
+                                        <option value="성북구" hidden>성북구</option>
+                                        <option value="서초구" hidden>서초구</option>
+                                        <option value="송파구" hidden>송파구</option>
+                                        <option value="영등포구" hidden>영등포구</option>
+                                        <option value="양천구" hidden>양천구</option>
+                                        <option value="용산구" hidden>용산구</option>
+                                        <option value="은평구" hidden>은평구</option>
+                                        <option value="종로구" hidden>종로구</option>
+                                        <option value="중구" hidden>중구</option>
+                                        <option value="중랑구" hidden>중랑구</option>
+                                    </select><br></br>
                                     <select id="stationBox">
                                         <option value="역명">역명</option>
                                         <option value="강남" class="gangnam" hidden>강남</option>
@@ -524,28 +536,16 @@
                                         <option value="태릉입구" class="jungnang" hidden>태릉입구</option>
                                         <option value="화랑대" class="jungnang" hidden>화랑대</option>
                                     </select>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <h2>추천지역 : </h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <table width="100%" class="table">
-                            <tr>
-                                <td>
-                                    <h2>그래프삽입 위치</h2>
                                 </td>
-                                <td>
-                                    <h2>지도 삽입 위치</h2>
+                                <td class="chart">
+                                    <h2>그래프삽입 위치</h2>
                                 </td>
                             </tr>
                         </table>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <h2>...</h2>
+                            <a>라이센스 정보 : </a>
                         </td>
                     </tr>
                </table>
@@ -557,7 +557,6 @@
         <div class = "cradit">
             <p>선문대학교 컴퓨터공학부 2021년도 오픈소스프로젝트</p>
             <p>개발자 : 이규섭(대표) 박영우 박건순 정원우</p>
-            <p>문의 : 010-1023-6974</p>
         </div>
     </body>
 </html>
