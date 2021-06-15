@@ -56,6 +56,19 @@ function selectBusinessType(){
     }
 }
 
+function showChart(){
+    var chartSpace = document.getElementById("chart");
+    var select = document.getElementById("selectBox2");
+
+    var value = select.options[select.selectedIndex].value;
+
+    for(var i = 1;i<select.length;i++){
+        if(select.selectedIndex == i){
+            chartSpace.innerHTML = "<img src ='../chart/my_plot" + i + ".png'>";
+        }
+    }
+}
+
 var selectAreaValue;
 
 function showStation(areaClass){
