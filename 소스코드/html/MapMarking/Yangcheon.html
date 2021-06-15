@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5270616, 126.8561534), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+{title: ' 신정네거리 ', latlng: new kakao.maps.LatLng( 37.52022312 , 126.8528896 )}
+,{title: ' 양천구청 ', latlng: new kakao.maps.LatLng( 37.51238887 , 126.8657224 )}
+,{title: ' 목동 ', latlng: new kakao.maps.LatLng( 37.52613331 , 126.8646253 )}
+,{title: ' 신정 ', latlng: new kakao.maps.LatLng( 37.52502761 , 126.8560975 )}
+,{title: ' 오목교 ', latlng: new kakao.maps.LatLng( 37.52453408 , 126.8753073 )}
+,{title: ' 신목동 ', latlng: new kakao.maps.LatLng( 37.54428837 , 126.8830958 )}
+,{title: ' 양천향교 ', latlng: new kakao.maps.LatLng( 37.56808088 , 126.8419788 )}
+,{title: ' 염창 ', latlng: new kakao.maps.LatLng( 37.54698294 , 126.8748716 )}
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+</body>
+</html>

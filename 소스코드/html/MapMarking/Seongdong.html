@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5506753,127.0409622), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+{title: ' 뚝섬 ', latlng: new kakao.maps.LatLng( 37.54724155 , 127.0473873 )}
+,{title: ' 상왕십리 ', latlng: new kakao.maps.LatLng( 37.56443847 , 127.0292747 )}
+,{title: ' 성수 ', latlng: new kakao.maps.LatLng( 37.54458882 , 127.056067 )}
+,{title: ' 신답 ', latlng: new kakao.maps.LatLng( 37.56983868 , 127.0470801 )}
+,{title: ' 왕십리 ', latlng: new kakao.maps.LatLng( 37.56126836 , 127.0371034 )}
+,{title: ' 용답 ', latlng: new kakao.maps.LatLng( 37.56212458 , 127.0508918 )}
+,{title: ' 한양대 ', latlng: new kakao.maps.LatLng( 37.55571599 , 127.0436398 )}
+,{title: ' 금호 ', latlng: new kakao.maps.LatLng( 37.54826272 , 127.0158292 )}
+,{title: ' 옥수 ', latlng: new kakao.maps.LatLng( 37.54156628 , 127.0173938 )}
+,{title: ' 군자 ', latlng: new kakao.maps.LatLng( 37.55714969 , 127.0795129 )}
+,{title: ' 답십리 ', latlng: new kakao.maps.LatLng( 37.56697481 , 127.0525613 )}
+,{title: ' 마장 ', latlng: new kakao.maps.LatLng( 37.56613896 , 127.0429849 )}
+,{title: ' 신금호 ', latlng: new kakao.maps.LatLng( 37.55447529 , 127.0204932 )}
+,{title: ' 장한평 ', latlng: new kakao.maps.LatLng( 37.56160299 , 127.0637037 )}
+,{title: ' 행당 ', latlng: new kakao.maps.LatLng( 37.55736378 , 127.0295118 )}
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+</body>
+</html>
