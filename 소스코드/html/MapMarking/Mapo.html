@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5622906, 126.9087803), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+    {
+        title: '신촌', 
+        latlng: new kakao.maps.LatLng(37.55519907 , 126.9369808)
+    },
+    {
+        title: '아현', 
+        latlng: new kakao.maps.LatLng(37.55740618 , 126.9561464)
+    },
+    {
+        title: '이대', 
+        latlng: new kakao.maps.LatLng(37.55681472 , 126.9464318)
+    },
+    {
+        title: '합정',
+        latlng: new kakao.maps.LatLng(37.54991226 , 126.9144563)
+    },
+    {
+        title: '홍대입구', 
+        latlng: new kakao.maps.LatLng(37.55687074 , 126.9237786)
+    },
+    {
+        title: '공덕', 
+        latlng: new kakao.maps.LatLng(37.54454169 , 126.9514512)
+    },
+    {
+        title: '마포', 
+        latlng: new kakao.maps.LatLng(37.53955493 , 126.9458648 )
+    },
+    {
+        title: '애오개', 
+        latlng: new kakao.maps.LatLng(37.55341315 , 126.9566694)
+    },
+    {
+        title: '대흥', 
+        latlng: new kakao.maps.LatLng(37.54764791 , 126.9424732)
+    },
+    {
+        title: '광흥창', 
+        latlng: new kakao.maps.LatLng(37.54748738 , 126.9320308)
+    },
+    {
+        title: '마포구청', 
+        latlng: new kakao.maps.LatLng(37.56348719 , 126.9034256)
+    },
+    {
+        title: '망원', 
+        latlng: new kakao.maps.LatLng(37.55608266 , 126.9100943)
+    },
+    {
+        title: '상수', 
+        latlng: new kakao.maps.LatLng(37.54776618 , 126.9224299 )
+    },
+    {
+        title: '월드컵경기장', 
+        latlng: new kakao.maps.LatLng( 37.56963557 , 126.8990981 )
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+</body>
+</html>

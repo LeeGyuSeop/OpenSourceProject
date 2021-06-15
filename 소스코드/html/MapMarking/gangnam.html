@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.4959854, 127.0664091), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+    {
+        title: '역삼', 
+        latlng: new kakao.maps.LatLng(37.50067442, 127.0364695)
+    },
+    {
+        title: '강남', 
+        latlng: new kakao.maps.LatLng(37.49808544, 127.0280003)
+    },
+    {
+        title: '삼성', 
+        latlng: new kakao.maps.LatLng(37.50882274,127.0630255  )
+    },
+    {
+        title: '선릉',
+        latlng: new kakao.maps.LatLng( 37.50449737,127.0489617 )
+    },
+    {
+        title: '대치', 
+        latlng: new kakao.maps.LatLng(37.49449665,127.0632034  )
+    },
+    {
+        title: '대청', 
+        latlng: new kakao.maps.LatLng( 37.49370832,127.079527 )
+    },
+    {
+        title: '도곡', 
+        latlng: new kakao.maps.LatLng(37.49097578,127.0554977  )
+    },
+    {
+        title: '매봉', 
+        latlng: new kakao.maps.LatLng(37.48693947,127.0467114  )
+    },
+    {
+        title: '수서', 
+        latlng: new kakao.maps.LatLng(37.48529511,127.1044698  )
+    },
+    {
+        title: '신사', 
+        latlng: new kakao.maps.LatLng( 37.51643507,127.0203108 )
+    },
+    {
+        title: '압구정', 
+        latlng: new kakao.maps.LatLng(37.52649218,127.0285087  )
+    },
+    {
+        title: '일원', 
+        latlng: new kakao.maps.LatLng(37.48398867,127.0841298 )
+    },
+    {
+        title: '학여울', 
+        latlng: new kakao.maps.LatLng(37.4968852,127.0711666  )
+    },
+    {
+        title: '강남구청', 
+        latlng: new kakao.maps.LatLng(37.51721527,127.0413098  )
+    },
+    {
+        title: '논현', 
+        latlng: new kakao.maps.LatLng(37.5112018,127.0216531  )
+    },
+    {
+        title: '청담', 
+        latlng: new kakao.maps.LatLng(37.51945558,127.0537179  )
+    },
+    {
+        title: '학동', 
+        latlng: new kakao.maps.LatLng(37.51434579,127.0319019  )
+    },
+    {
+        title: '신논현', 
+        latlng: new kakao.maps.LatLng(37.50481111,127.025492  )
+    },
+    {
+        title: '봉은사', 
+        latlng: new kakao.maps.LatLng(37.51425545,127.0602339  )
+    },
+    {
+        title: '삼성중앙', 
+        latlng: new kakao.maps.LatLng(37.51296145,127.0530437  )
+    },
+    {
+        title: '선정릉', 
+        latlng: new kakao.maps.LatLng(37.51093264,127.0436273  )
+    },
+    {
+        title: '언주', 
+        latlng: new kakao.maps.LatLng(37.5073354,127.0339709  )
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+</body>
+</html>

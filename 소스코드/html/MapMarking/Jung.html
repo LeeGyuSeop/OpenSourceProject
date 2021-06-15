@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5579452, 126.9941904), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+    {
+        title: '서울역', 
+        latlng: new kakao.maps.LatLng(37.55598024 , 126.9720913)
+    },
+    {
+        title: '시청', 
+        latlng: new kakao.maps.LatLng(37.5653445 , 126.9771993)
+    },
+    {
+        title: '동대문역사문화공원', 
+        latlng: new kakao.maps.LatLng(37.5656635 , 127.0090053 )
+    },
+    {
+        title: '신당',
+        latlng: new kakao.maps.LatLng( 37.56567305 , 127.0194775)
+    },
+    {
+        title: '을지로3가', 
+        latlng: new kakao.maps.LatLng(37.5662906 , 126.9909856)
+    },
+    {
+        title: '을지로4가', 
+        latlng: new kakao.maps.LatLng(37.5666405 , 126.9976321)
+    },
+    {
+        title: '을지로입구', 
+        latlng: new kakao.maps.LatLng(37.56603732 , 126.982193 )
+    },
+    {
+        title: '동대입구', 
+        latlng: new kakao.maps.LatLng( 37.55905402 , 127.0053149 )
+    },
+    {
+        title: '약수', 
+        latlng: new kakao.maps.LatLng( 37.5545054 , 127.0108917)
+    },
+    {
+        title: '충무로', 
+        latlng: new kakao.maps.LatLng(37.56139658 , 126.9941507 )
+    },
+    {
+        title: '명동', 
+        latlng: new kakao.maps.LatLng(37.56096347 , 126.9864001)
+    },
+    {
+        title: '회현', 
+        latlng: new kakao.maps.LatLng(37.55876024 , 126.9784373)
+    },
+    {
+        title: '청구', 
+        latlng: new kakao.maps.LatLng( 37.56021019 , 127.0139438 )
+    },
+    {
+        title: '버티고개', 
+        latlng: new kakao.maps.LatLng(37.54782751 , 127.0067309)
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+</body>
+</html>

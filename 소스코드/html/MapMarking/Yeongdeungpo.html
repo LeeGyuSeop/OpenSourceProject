@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.520641, 126.9139242), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+{title: ' 당산 ', latlng: new kakao.maps.LatLng( 37.53478432 , 126.9026118 )}
+,{title: ' 문래 ', latlng: new kakao.maps.LatLng( 37.51797572 , 126.8947788 )}
+,{title: ' 영등포구청 ', latlng: new kakao.maps.LatLng( 37.52583053 , 126.8966774 )}
+,{title: ' 신길 ', latlng: new kakao.maps.LatLng( 37.51678703 , 126.9183672 )}
+,{title: ' 여의나루 ', latlng: new kakao.maps.LatLng( 37.52714695 , 126.932986 )}
+,{title: ' 양평 ', latlng: new kakao.maps.LatLng( 37.52557964 , 126.8864193 )}
+,{title: ' 영등포시장 ', latlng: new kakao.maps.LatLng( 37.52270938 , 126.9051796 )}
+,{title: ' 여의도 ', latlng: new kakao.maps.LatLng( 37.52117009 , 126.924661 )}
+,{title: ' 보라매 ', latlng: new kakao.maps.LatLng( 37.49992176 , 126.9206112 )}
+,{title: ' 신풍 ', latlng: new kakao.maps.LatLng( 37.50012299 , 126.9097543 )}
+,{title: ' 국회의사당 ', latlng: new kakao.maps.LatLng( 37.5281465 , 126.917839 )}
+,{title: ' 샛강 ', latlng: new kakao.maps.LatLng( 37.51737377 , 126.9283751 )}
+,{title: ' 선유도 ', latlng: new kakao.maps.LatLng( 37.53815685 , 126.8933339 )}
+
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+</body>
+</html>
