@@ -48,12 +48,6 @@ function selectBusinessType(){
     else if(value == "학문/교육"){
         showBusiness(academicEducation);
     }
-    else if(value == "숙박"){
-        showBusiness(lodgment);
-    }
-    else if(value == "부동산"){
-        showBusiness(estate);
-    }
 }
 
 function showChart(){
