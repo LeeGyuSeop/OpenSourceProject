@@ -4,6 +4,15 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script type="text/javascript" src="../js/EventScript.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript">   
+            $(document).ready( function() {
+            
+            $("#header").load("MapMarking/gangnam.html");  // 원하는 파일 경로를 삽입
+
+            });
+        </script>
+
 
         <title>대중교통 유동인구 기반 상권분석 시스템</title>
     </head>
@@ -531,11 +540,947 @@
                                 </td>
                                 <td class="chart">
                                     <!--차트 삽입 공간-->
+
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" class = "map">
-                                    <!--지도 삽입 공간-->
+                                <td colspan="2">
+                                    <div style="border: solid; width: 800px;">
+                                        <div id="map" style="width:100%;height:500px;"></div>
+
+                                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	bf0c7aaf8e71ab6c2f2db7299e372e88"></script>
+                                        <script>
+                                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                                            mapOption = { 
+                                                center: new kakao.maps.LatLng(37.4959854, 127.0664091), // 지도의 중심좌표
+                                                level: 8 // 지도의 확대 레벨
+                                            };
+
+                                        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                                        var area = document.getElementById("areaBox2");
+                                        var value = area.options[area.selectedIndex].value;
+                                        var positions;
+                                        
+                                        // 마커를 표시할 위치와 title 객체 배열입니다 
+                                        if(value == "강남구"){
+                                            positions = [
+                                            {
+                                                title: '역삼', 
+                                                latlng: new kakao.maps.LatLng(37.50067442, 127.0364695)
+                                            },
+                                            {
+                                                title: '강남', 
+                                                latlng: new kakao.maps.LatLng(37.49808544, 127.0280003)
+                                            },
+                                            {
+                                                title: '삼성', 
+                                                latlng: new kakao.maps.LatLng(37.50882274,127.0630255  )
+                                            },
+                                            {
+                                                title: '선릉',
+                                                latlng: new kakao.maps.LatLng( 37.50449737,127.0489617 )
+                                            },
+                                            {
+                                                title: '대치', 
+                                                latlng: new kakao.maps.LatLng(37.49449665,127.0632034  )
+                                            },
+                                            {
+                                                title: '대청', 
+                                                latlng: new kakao.maps.LatLng( 37.49370832,127.079527 )
+                                            },
+                                            {
+                                                title: '도곡', 
+                                                latlng: new kakao.maps.LatLng(37.49097578,127.0554977  )
+                                            },
+                                            {
+                                                title: '매봉', 
+                                                latlng: new kakao.maps.LatLng(37.48693947,127.0467114  )
+                                            },
+                                            {
+                                                title: '수서', 
+                                                latlng: new kakao.maps.LatLng(37.48529511,127.1044698  )
+                                            },
+                                            {
+                                                title: '신사', 
+                                                latlng: new kakao.maps.LatLng( 37.51643507,127.0203108 )
+                                            },
+                                            {
+                                                title: '압구정', 
+                                                latlng: new kakao.maps.LatLng(37.52649218,127.0285087  )
+                                            },
+                                            {
+                                                title: '일원', 
+                                                latlng: new kakao.maps.LatLng(37.48398867,127.0841298 )
+                                            },
+                                            {
+                                                title: '학여울', 
+                                                latlng: new kakao.maps.LatLng(37.4968852,127.0711666  )
+                                            },
+                                            {
+                                                title: '강남구청', 
+                                                latlng: new kakao.maps.LatLng(37.51721527,127.0413098  )
+                                            },
+                                            {
+                                                title: '논현', 
+                                                latlng: new kakao.maps.LatLng(37.5112018,127.0216531  )
+                                            },
+                                            {
+                                                title: '청담', 
+                                                latlng: new kakao.maps.LatLng(37.51945558,127.0537179  )
+                                            },
+                                            {
+                                                title: '학동', 
+                                                latlng: new kakao.maps.LatLng(37.51434579,127.0319019  )
+                                            },
+                                            {
+                                                title: '신논현', 
+                                                latlng: new kakao.maps.LatLng(37.50481111,127.025492  )
+                                            },
+                                            {
+                                                title: '봉은사', 
+                                                latlng: new kakao.maps.LatLng(37.51425545,127.0602339  )
+                                            },
+                                            {
+                                                title: '삼성중앙', 
+                                                latlng: new kakao.maps.LatLng(37.51296145,127.0530437  )
+                                            },
+                                            {
+                                                title: '선정릉', 
+                                                latlng: new kakao.maps.LatLng(37.51093264,127.0436273  )
+                                            },
+                                            {
+                                                title: '언주', 
+                                                latlng: new kakao.maps.LatLng(37.5073354,127.0339709  )
+                                            }
+                                        ];
+                                        }
+                                        else if(value == "강동구"){
+                                            positions = [
+                                                {
+                                                    title: '강동', 
+                                                    latlng: new kakao.maps.LatLng(37.53588191 , 127.1323963)
+                                                },
+                                                {
+                                                    title: '강일', 
+                                                    latlng: new kakao.maps.LatLng(37.55742598 , 127.1756802)
+                                                },
+                                                {
+                                                    title: '고덕', 
+                                                    latlng: new kakao.maps.LatLng(37.55504677 , 127.1541639)
+                                                },
+                                                {
+                                                    title: '길동', 
+                                                    latlng: new kakao.maps.LatLng(37.53782649 , 127.1400213)
+                                                },
+                                                {
+                                                    title: '굽은다리', 
+                                                    latlng: new kakao.maps.LatLng(37.54551759 , 127.1428827)
+                                                },
+                                                {
+                                                    title: '든춘동', 
+                                                    latlng: new kakao.maps.LatLng(37.52765684 , 127.1362146)
+                                                },
+                                                {
+                                                    title: '명일', 
+                                                    latlng: new kakao.maps.LatLng(37.5513979 , 127.1440437)
+                                                },
+                                                {
+                                                    title: '상일동', 
+                                                    latlng: new kakao.maps.LatLng(37.55667788 , 127.1659058)
+                                                },
+                                                {
+                                                    title: '천호', 
+                                                    latlng: new kakao.maps.LatLng(37.53851121 , 127.1239285)
+                                                },
+                                                {
+                                                    title: '강동구청', 
+                                                    latlng: new kakao.maps.LatLng(37.5302112 , 127.1204437)
+                                                },
+                                                {
+                                                    title: '암사', 
+                                                    latlng: new kakao.maps.LatLng(37.55015908 , 127.1275419)
+                                                },
+                                                {
+                                                    title: '중앙보훈병원', 
+                                                    latlng: new kakao.maps.LatLng(37.52840259 , 127.1484117)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "강북구"){
+                                            positions = [
+                                                {
+                                                    title: '미아', 
+                                                    latlng: new kakao.maps.LatLng(37.62665449 , 127.0260411)
+                                                },
+                                                {
+                                                    title: '미아사거리', 
+                                                    latlng: new kakao.maps.LatLng(37.61327926 , 127.0300866)
+                                                },
+                                                {
+                                                    title: '수유', 
+                                                    latlng: new kakao.maps.LatLng(37.63788449 , 127.0255102)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "강서구"){
+                                            positions = [
+                                                {
+                                                    title: '개화산', 
+                                                    latlng: new kakao.maps.LatLng(37.57253715 , 126.8068143)
+                                                },
+                                                {
+                                                    title: '김포공항', 
+                                                    latlng: new kakao.maps.LatLng(37.56196577 , 126.8019159)
+                                                },
+                                                {
+                                                    title: '까치산', 
+                                                    latlng: new kakao.maps.LatLng(37.53223067 , 126.8464443)
+                                                },
+                                                {
+                                                    title: '마곡',
+                                                    latlng: new kakao.maps.LatLng(37.56022864 , 126.8246969)
+                                                },
+                                                {
+                                                    title: '발산', 
+                                                    latlng: new kakao.maps.LatLng(37.55867955 , 126.8377387)
+                                                },
+                                                {
+                                                    title: '방화', 
+                                                    latlng: new kakao.maps.LatLng(37.5776032 , 126.8128193 )
+                                                },
+                                                {
+                                                    title: '송정', 
+                                                    latlng: new kakao.maps.LatLng(37.56116124 , 126.8124303 )
+                                                },
+                                                {
+                                                    title: '무장산', 
+                                                    latlng: new kakao.maps.LatLng(37.54881709 , 126.8363251 )
+                                                },
+                                                {
+                                                    title: '화곡', 
+                                                    latlng: new kakao.maps.LatLng(37.54165079 , 126.840455 )
+                                                },
+                                                {
+                                                    title: '개화', 
+                                                    latlng: new kakao.maps.LatLng( 37.57834451 , 126.7968914)
+                                                },
+                                                {
+                                                    title: '가양', 
+                                                    latlng: new kakao.maps.LatLng(37.56143312 , 126.8544203 )
+                                                },
+                                                {
+                                                    title: '공항시장', 
+                                                    latlng: new kakao.maps.LatLng(37.56368833 , 126.8106085)
+                                                },
+                                                {
+                                                    title: '등촌', 
+                                                    latlng: new kakao.maps.LatLng(37.55072808 , 126.8655721  )
+                                                },
+                                                {
+                                                    title: '마곡나루', 
+                                                    latlng: new kakao.maps.LatLng( 37.56671261 , 126.8274209 )
+                                                },
+                                                {
+                                                    title: '신방화', 
+                                                    latlng: new kakao.maps.LatLng(37.56748655 , 126.8172364 )
+                                                },
+                                                {
+                                                    title: '증미', 
+                                                    latlng: new kakao.maps.LatLng(37.55813216 , 126.8606379 )
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "관악구"){
+                                            positions = [
+                                            {title: ' 낙성대 ', latlng: new kakao.maps.LatLng( 37.47709324 , 126.9635239 )}
+                                            ,{title: ' 봉천 ', latlng: new kakao.maps.LatLng( 37.48247252 , 126.9416865 )}
+                                            ,{title: ' 서울대입구 ', latlng: new kakao.maps.LatLng( 37.48128451 , 126.9527132 )}
+                                            ,{title: ' 신림 ', latlng: new kakao.maps.LatLng( 37.48426804 , 126.9297454 )}
+
+                                            ];
+                                        }
+                                        else if(value == "광진구"){
+                                            positions = [
+                                                {
+                                                    title: '강변', 
+                                                    latlng: new kakao.maps.LatLng(37.53511804 , 127.0947411)
+                                                },
+                                                {
+                                                    title: '건대입구', 
+                                                    latlng: new kakao.maps.LatLng(37.54040842 , 127.0692029)
+                                                },
+                                                {
+                                                    title: '구의', 
+                                                    latlng: new kakao.maps.LatLng(37.53717527 , 127.0861808)
+                                                },
+                                                {
+                                                    title: '광나루',
+                                                    latlng: new kakao.maps.LatLng( 37.54529917 , 127.1035215 )
+                                                },
+                                                {
+                                                    title: '아차산', 
+                                                    latlng: new kakao.maps.LatLng(37.55224827 , 127.0895661)
+                                                },
+                                                {
+                                                    title: '뚝섬유원지', 
+                                                    latlng: new kakao.maps.LatLng( 37.53155838 , 127.0667962)
+                                                },
+                                                {
+                                                    title: '어린이대공원', 
+                                                    latlng: new kakao.maps.LatLng(37.54796268 , 127.0746553 )
+                                                },
+                                                {
+                                                    title: '중곡', 
+                                                    latlng: new kakao.maps.LatLng(37.56592206 , 127.0843124)
+                                                },
+                                                {
+                                                    title: '건대입구', 
+                                                    latlng: new kakao.maps.LatLng(37.54040842 , 127.0692029 )
+                                                },
+                                                {
+                                                    title: '군자', 
+                                                    latlng: new kakao.maps.LatLng(37.55714969 , 127.0795129)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "구로구"){
+                                            positions = [
+                                                {
+                                                    title: '구로디지털단지', 
+                                                    latlng: new kakao.maps.LatLng(37.48526058 , 126.9014731)
+                                                },
+                                                {
+                                                    title: '도림천', 
+                                                    latlng: new kakao.maps.LatLng(37.51450804 , 126.8826491)
+                                                },
+                                                {
+                                                    title: '대림', 
+                                                    latlng: new kakao.maps.LatLng(37.49330994 , 126.894931)
+                                                },
+                                                {
+                                                    title: '신도림',
+                                                    latlng: new kakao.maps.LatLng(37.50890848 , 126.8913125)
+                                                },
+                                                {
+                                                    title: '남구로', 
+                                                    latlng: new kakao.maps.LatLng(37.48625714 , 126.8874151)
+                                                },
+                                                {
+                                                    title: '온수', 
+                                                    latlng: new kakao.maps.LatLng(37.49196754 , 126.8238479)
+                                                },
+                                                {
+                                                    title: '천왕', 
+                                                    latlng: new kakao.maps.LatLng(37.48685558 , 126.8386053)
+                                                },
+                                                {
+                                                    title: '대림', 
+                                                    latlng: new kakao.maps.LatLng(37.49330994 , 126.894931)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "금천구"){
+                                            positions = [
+                                                {
+                                                    title: '가산디지털단지', 
+                                                    latlng: new kakao.maps.LatLng(37.48039597 , 126.8826618)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "노원구"){
+                                            positions = [
+                                                {title: ' 노원 ', latlng: new kakao.maps.LatLng( 37.65634035 , 127.0634491 )}
+                                                ,{title: ' 당고개 ', latlng: new kakao.maps.LatLng( 37.67021684 , 127.0790666 )}
+                                                ,{title: ' 상계 ', latlng: new kakao.maps.LatLng( 37.66072054 , 127.0734216 )}
+                                                ,{title: ' 공릉 ', latlng: new kakao.maps.LatLng( 37.62554276 , 127.0730336 )}
+                                                ,{title: ' 마들 ', latlng: new kakao.maps.LatLng( 37.66520175 , 127.0577126 )}
+                                                ,{title: ' 수락산 ', latlng: new kakao.maps.LatLng( 37.67788147 , 127.055351 )}
+                                                ,{title: ' 중계 ', latlng: new kakao.maps.LatLng( 37.64509212 , 127.0641104 )}
+                                                ,{title: ' 하계 ', latlng: new kakao.maps.LatLng( 37.63647654 , 127.0679913 )}
+                                                ,{title: ' 노원 ', latlng: new kakao.maps.LatLng( 37.65634035 , 127.0634491 )}
+                                            ];
+                                        }
+                                        else if(value == "도봉구"){
+                                            positions = [
+                                                {
+                                                    title: '쌍문', 
+                                                    latlng: new kakao.maps.LatLng(37.64854261 , 127.0346561)
+                                                },
+                                                {
+                                                    title: '창동', 
+                                                    latlng: new kakao.maps.LatLng(37.65333851 , 127.047645)
+                                                },
+                                                {
+                                                    title: '도봉산', 
+                                                    latlng: new kakao.maps.LatLng(37.68951168 , 127.0460627  )
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "동대문구"){
+                                            positions = [
+                                                {
+                                                    title: '신설동', 
+                                                    latlng: new kakao.maps.LatLng(37.57602997 , 127.0244567)
+                                                },
+                                                {
+                                                    title: '제기동', 
+                                                    latlng: new kakao.maps.LatLng(37.5781753 , 127.0349495)
+                                                },
+                                                {
+                                                    title: '청량리', 
+                                                    latlng: new kakao.maps.LatLng(37.58073293 , 127.0485044)
+                                                },
+                                                {
+                                                    title: '용두',
+                                                    latlng: new kakao.maps.LatLng(37.57406213 , 127.0382757)
+                                                },
+                                                {
+                                                    title: '신설동', 
+                                                    latlng: new kakao.maps.LatLng(37.57602997 , 127.0244567)
+                                                },
+                                                {
+                                                    title: '동대문역사문화공원', 
+                                                    latlng: new kakao.maps.LatLng(37.5656635 , 127.0090053)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "동작구"){
+                                            positions = [
+                                                {
+                                                    title: '사당', 
+                                                    latlng: new kakao.maps.LatLng(37.47656043 , 126.9815586)
+                                                },
+                                                {
+                                                    title: '신대방', 
+                                                    latlng: new kakao.maps.LatLng(37.48765226 , 126.9135097)
+                                                },
+                                                {
+                                                    title: '동작', 
+                                                    latlng: new kakao.maps.LatLng(37.50297778 , 126.9803171  )
+                                                },
+                                                {
+                                                    title: '총신대입구',
+                                                    latlng: new kakao.maps.LatLng(37.4867996 , 126.9822119 )
+                                                },
+                                                {
+                                                    title: '남성', 
+                                                    latlng: new kakao.maps.LatLng(37.48479351 , 126.9709102)
+                                                },
+                                                {
+                                                    title: '상도', 
+                                                    latlng: new kakao.maps.LatLng( 37.50287063 , 126.947918 )
+                                                },
+                                                {
+                                                    title: '숭실대입구', 
+                                                    latlng: new kakao.maps.LatLng(37.49631728 , 126.953622 )
+                                                },
+                                                {
+                                                    title: '신대방삼거리', 
+                                                    latlng: new kakao.maps.LatLng(37.49975723 , 126.9282109 )
+                                                },
+                                                {
+                                                    title: '이수', 
+                                                    latlng: new kakao.maps.LatLng(37.4867996 , 126.9822119)
+                                                },
+                                                {
+                                                    title: '장승배기', 
+                                                    latlng: new kakao.maps.LatLng( 37.50489906 , 126.9390724)
+                                                },
+                                                {
+                                                    title: '노들', 
+                                                    latlng: new kakao.maps.LatLng(37.51267212 , 126.9530961)
+                                                },
+                                                {
+                                                    title: '노량진', 
+                                                    latlng: new kakao.maps.LatLng(37.51358567 , 126.9408932)
+                                                },
+                                                {
+                                                    title: '흑석', 
+                                                    latlng: new kakao.maps.LatLng(37.50916547 , 126.9634631)
+                                                },
+                                                {
+                                                    title: '사당', 
+                                                    latlng: new kakao.maps.LatLng(37.47656043 , 126.9815586)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "마포구"){
+                                            positions = [
+                                                {
+                                                    title: '신촌', 
+                                                    latlng: new kakao.maps.LatLng(37.55519907 , 126.9369808)
+                                                },
+                                                {
+                                                    title: '아현', 
+                                                    latlng: new kakao.maps.LatLng(37.55740618 , 126.9561464)
+                                                },
+                                                {
+                                                    title: '이대', 
+                                                    latlng: new kakao.maps.LatLng(37.55681472 , 126.9464318)
+                                                },
+                                                {
+                                                    title: '합정',
+                                                    latlng: new kakao.maps.LatLng(37.54991226 , 126.9144563)
+                                                },
+                                                {
+                                                    title: '홍대입구', 
+                                                    latlng: new kakao.maps.LatLng(37.55687074 , 126.9237786)
+                                                },
+                                                {
+                                                    title: '공덕', 
+                                                    latlng: new kakao.maps.LatLng(37.54454169 , 126.9514512)
+                                                },
+                                                {
+                                                    title: '마포', 
+                                                    latlng: new kakao.maps.LatLng(37.53955493 , 126.9458648 )
+                                                },
+                                                {
+                                                    title: '애오개', 
+                                                    latlng: new kakao.maps.LatLng(37.55341315 , 126.9566694)
+                                                },
+                                                {
+                                                    title: '대흥', 
+                                                    latlng: new kakao.maps.LatLng(37.54764791 , 126.9424732)
+                                                },
+                                                {
+                                                    title: '광흥창', 
+                                                    latlng: new kakao.maps.LatLng(37.54748738 , 126.9320308)
+                                                },
+                                                {
+                                                    title: '마포구청', 
+                                                    latlng: new kakao.maps.LatLng(37.56348719 , 126.9034256)
+                                                },
+                                                {
+                                                    title: '망원', 
+                                                    latlng: new kakao.maps.LatLng(37.55608266 , 126.9100943)
+                                                },
+                                                {
+                                                    title: '상수', 
+                                                    latlng: new kakao.maps.LatLng(37.54776618 , 126.9224299 )
+                                                },
+                                                {
+                                                    title: '월드컵경기장', 
+                                                    latlng: new kakao.maps.LatLng( 37.56963557 , 126.8990981 )
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "서대문구"){
+                                            positions = [
+                                                {title: ' 충정로 ', latlng: new kakao.maps.LatLng( 37.55976239 , 126.9644932 )}
+                                                ,{title: ' 독립문 ', latlng: new kakao.maps.LatLng( 37.57446808 , 126.957916 )}
+                                                ,{title: ' 무악재 ', latlng: new kakao.maps.LatLng( 37.58256323 , 126.950231 )}
+                                                ,{title: ' 홍제 ', latlng: new kakao.maps.LatLng( 37.58879538 , 126.944158 )}
+                                                ,{title: ' 서대문 ', latlng: new kakao.maps.LatLng( 37.56575284 , 126.9666364 )}
+                                                ,{title: ' 디지털미디어시티 ', latlng: new kakao.maps.LatLng( 37.57601285 , 126.9012767 )}
+                                                ];
+                                        }
+                                        else if(value == "서초구"){
+                                            positions = [
+                                                {
+                                                    title: '교대', 
+                                                    latlng: new kakao.maps.LatLng(37.49274317 , 127.013868)
+                                                },
+                                                {
+                                                    title: '방배', 
+                                                    latlng: new kakao.maps.LatLng(37.48145613 , 126.9975533)
+                                                },
+                                                {
+                                                    title: '서초', 
+                                                    latlng: new kakao.maps.LatLng(37.49184993 , 127.0076621)
+                                                },
+                                                {
+                                                    title: '고속터미널',
+                                                    latlng: new kakao.maps.LatLng(37.50454705 , 127.005121)
+                                                },
+                                                {
+                                                    title: '남부터미널', 
+                                                    latlng: new kakao.maps.LatLng(37.48519963 , 127.0162003)
+                                                },
+                                                {
+                                                    title: '양재', 
+                                                    latlng: new kakao.maps.LatLng(37.48457591 , 127.0341641)
+                                                },
+                                                {
+                                                    title: '잠원', 
+                                                    latlng: new kakao.maps.LatLng(37.51288992 , 127.0114195 )
+                                                },
+                                                {
+                                                    title: '남태령', 
+                                                    latlng: new kakao.maps.LatLng(37.46424996 , 126.9890853  )
+                                                },
+                                                {
+                                                    title: '내방', 
+                                                    latlng: new kakao.maps.LatLng(37.48765852 , 126.9936002)
+                                                },
+                                                {
+                                                    title: '반포', 
+                                                    latlng: new kakao.maps.LatLng(37.50816143 , 127.0115862)
+                                                },
+                                                {
+                                                    title: '구반포', 
+                                                    latlng: new kakao.maps.LatLng(37.50143983 , 126.9874649 )
+                                                },
+                                                {
+                                                    title: '사평', 
+                                                    latlng: new kakao.maps.LatLng(37.50423263 , 127.0152725)
+                                                },
+                                                {
+                                                    title: '신반포', 
+                                                    latlng: new kakao.maps.LatLng(37.50350914 , 126.9960824 )
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "성동구"){
+                                            positions = [
+                                                {title: ' 뚝섬 ', latlng: new kakao.maps.LatLng( 37.54724155 , 127.0473873 )}
+                                                ,{title: ' 상왕십리 ', latlng: new kakao.maps.LatLng( 37.56443847 , 127.0292747 )}
+                                                ,{title: ' 성수 ', latlng: new kakao.maps.LatLng( 37.54458882 , 127.056067 )}
+                                                ,{title: ' 신답 ', latlng: new kakao.maps.LatLng( 37.56983868 , 127.0470801 )}
+                                                ,{title: ' 왕십리 ', latlng: new kakao.maps.LatLng( 37.56126836 , 127.0371034 )}
+                                                ,{title: ' 용답 ', latlng: new kakao.maps.LatLng( 37.56212458 , 127.0508918 )}
+                                                ,{title: ' 한양대 ', latlng: new kakao.maps.LatLng( 37.55571599 , 127.0436398 )}
+                                                ,{title: ' 금호 ', latlng: new kakao.maps.LatLng( 37.54826272 , 127.0158292 )}
+                                                ,{title: ' 옥수 ', latlng: new kakao.maps.LatLng( 37.54156628 , 127.0173938 )}
+                                                ,{title: ' 군자 ', latlng: new kakao.maps.LatLng( 37.55714969 , 127.0795129 )}
+                                                ,{title: ' 답십리 ', latlng: new kakao.maps.LatLng( 37.56697481 , 127.0525613 )}
+                                                ,{title: ' 마장 ', latlng: new kakao.maps.LatLng( 37.56613896 , 127.0429849 )}
+                                                ,{title: ' 신금호 ', latlng: new kakao.maps.LatLng( 37.55447529 , 127.0204932 )}
+                                                ,{title: ' 장한평 ', latlng: new kakao.maps.LatLng( 37.56160299 , 127.0637037 )}
+                                                ,{title: ' 행당 ', latlng: new kakao.maps.LatLng( 37.55736378 , 127.0295118 )}
+                                                ];
+                                        }
+                                        else if(value == "성북구"){
+                                            positions = [
+                                                {
+                                                    title: '길음', 
+                                                    latlng: new kakao.maps.LatLng(37.60339478 , 127.0250591)
+                                                },
+                                                {
+                                                    title: '성신여대입구', 
+                                                    latlng: new kakao.maps.LatLng(37.59296993 , 127.0171249)
+                                                },
+                                                {
+                                                    title: '한성대입구', 
+                                                    latlng: new kakao.maps.LatLng(37.58842281 , 127.0060189 )
+                                                },
+                                                {
+                                                    title: '고려대', 
+                                                    latlng: new kakao.maps.LatLng(37.59044281 , 127.0363094 )
+                                                },
+                                                {
+                                                    title: '돌곶이', 
+                                                    latlng: new kakao.maps.LatLng(37.61054501 , 127.0564381 )
+                                                },
+                                                {
+                                                    title: '보문', 
+                                                    latlng: new kakao.maps.LatLng(37.5855417 , 127.0200035 )
+                                                },
+                                                {
+                                                    title: '상월곡', 
+                                                    latlng: new kakao.maps.LatLng(37.60655883 , 127.0488292 )
+                                                },
+                                                {
+                                                    title: '석계', 
+                                                    latlng: new kakao.maps.LatLng(37.61500553 , 127.0656883 )
+                                                },
+                                                {
+                                                    title: '안암', 
+                                                    latlng: new kakao.maps.LatLng(37.58630742 , 127.0292334 )
+                                                },
+                                                {
+                                                    title: '월곡', 
+                                                    latlng: new kakao.maps.LatLng(37.60180442 , 127.0414607)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "송파구"){
+                                            positions = [
+                                                {title: ' 잠실 ', latlng: new kakao.maps.LatLng( 37.51331286 , 127.1002288 )}
+                                                ,{title: ' 잠실나루 ', latlng: new kakao.maps.LatLng( 37.52071241 , 127.1038087 )}
+                                                ,{title: ' 잠실새내 ', latlng: new kakao.maps.LatLng( 37.51162636 , 127.0863143 )}
+                                                ,{title: ' 종합운동장 ', latlng: new kakao.maps.LatLng( 37.51114466 , 127.0738494 )}
+                                                ,{title: ' 가락시장 ', latlng: new kakao.maps.LatLng( 37.49309925 , 127.1182627 )}
+                                                ,{title: ' 경찰병원 ', latlng: new kakao.maps.LatLng( 37.49600492 , 127.1244824 )}
+                                                ,{title: ' 오금 ', latlng: new kakao.maps.LatLng( 37.50213886 , 127.1279532 )}
+                                                ,{title: ' 개롱 ', latlng: new kakao.maps.LatLng( 37.49796828 , 127.1350796 )}
+                                                ,{title: ' 거여 ', latlng: new kakao.maps.LatLng( 37.49333045 , 127.1437738 )}
+                                                ,{title: ' 마천 ', latlng: new kakao.maps.LatLng( 37.49503816 , 127.1528599 )}
+                                                ,{title: ' 방이 ', latlng: new kakao.maps.LatLng( 37.50875063 , 127.126096 )}
+                                                ,{title: ' 올림픽공원 ', latlng: new kakao.maps.LatLng( 37.51633899 , 127.1309637 )}
+                                                ,{title: ' 몽촌토성 ', latlng: new kakao.maps.LatLng( 37.51780648 , 127.1128631 )}
+                                                ,{title: ' 문정 ', latlng: new kakao.maps.LatLng( 37.48603105 , 127.1224849 )}
+                                                ,{title: ' 복정 ', latlng: new kakao.maps.LatLng( 37.47074187 , 127.126724 )}
+                                                ,{title: ' 송파 ', latlng: new kakao.maps.LatLng( 37.49971495 , 127.1121935 )}
+                                                ,{title: ' 석촌 ', latlng: new kakao.maps.LatLng( 37.50541412 , 127.1070041 )}
+                                                ,{title: ' 장지 ', latlng: new kakao.maps.LatLng( 37.47863169 , 127.1261766 )}
+                                                ,{title: ' 둔촌오륜 ', latlng: new kakao.maps.LatLng( 37.51940804 , 127.1386521 )}
+                                                ,{title: ' 삼전 ', latlng: new kakao.maps.LatLng( 37.5045509 , 127.0873648 )}
+                                                ,{title: ' 송파나루 ', latlng: new kakao.maps.LatLng( 37.51101671 , 127.1126628 )}
+                                                ,{title: ' 석촌고분 ', latlng: new kakao.maps.LatLng( 37.50246426 , 127.0965093 )}
+                                                ,{title: ' 한성백제 ', latlng: new kakao.maps.LatLng( 37.51653799 , 127.1164492 )}
+
+                                                ];
+                                        }
+                                        else if(value == "양천구"){
+                                            positions = [
+                                                {title: ' 신정네거리 ', latlng: new kakao.maps.LatLng( 37.52022312 , 126.8528896 )}
+                                                ,{title: ' 양천구청 ', latlng: new kakao.maps.LatLng( 37.51238887 , 126.8657224 )}
+                                                ,{title: ' 목동 ', latlng: new kakao.maps.LatLng( 37.52613331 , 126.8646253 )}
+                                                ,{title: ' 신정 ', latlng: new kakao.maps.LatLng( 37.52502761 , 126.8560975 )}
+                                                ,{title: ' 오목교 ', latlng: new kakao.maps.LatLng( 37.52453408 , 126.8753073 )}
+                                                ,{title: ' 신목동 ', latlng: new kakao.maps.LatLng( 37.54428837 , 126.8830958 )}
+                                                ,{title: ' 양천향교 ', latlng: new kakao.maps.LatLng( 37.56808088 , 126.8419788 )}
+                                                ,{title: ' 염창 ', latlng: new kakao.maps.LatLng( 37.54698294 , 126.8748716 )}
+                                                ];
+                                        }
+                                        else if(value == "영등포구"){
+                                            positions = [
+                                                {title: ' 당산 ', latlng: new kakao.maps.LatLng( 37.53478432 , 126.9026118 )}
+                                                ,{title: ' 문래 ', latlng: new kakao.maps.LatLng( 37.51797572 , 126.8947788 )}
+                                                ,{title: ' 영등포구청 ', latlng: new kakao.maps.LatLng( 37.52583053 , 126.8966774 )}
+                                                ,{title: ' 신길 ', latlng: new kakao.maps.LatLng( 37.51678703 , 126.9183672 )}
+                                                ,{title: ' 여의나루 ', latlng: new kakao.maps.LatLng( 37.52714695 , 126.932986 )}
+                                                ,{title: ' 양평 ', latlng: new kakao.maps.LatLng( 37.52557964 , 126.8864193 )}
+                                                ,{title: ' 영등포시장 ', latlng: new kakao.maps.LatLng( 37.52270938 , 126.9051796 )}
+                                                ,{title: ' 여의도 ', latlng: new kakao.maps.LatLng( 37.52117009 , 126.924661 )}
+                                                ,{title: ' 보라매 ', latlng: new kakao.maps.LatLng( 37.49992176 , 126.9206112 )}
+                                                ,{title: ' 신풍 ', latlng: new kakao.maps.LatLng( 37.50012299 , 126.9097543 )}
+                                                ,{title: ' 국회의사당 ', latlng: new kakao.maps.LatLng( 37.5281465 , 126.917839 )}
+                                                ,{title: ' 샛강 ', latlng: new kakao.maps.LatLng( 37.51737377 , 126.9283751 )}
+                                                ,{title: ' 선유도 ', latlng: new kakao.maps.LatLng( 37.53815685 , 126.8933339 )}
+
+                                                ];
+                                        }
+                                        else if(value == "용산구"){
+                                            positions = [
+                                                {title: ' 삼각지 ', latlng: new kakao.maps.LatLng( 37.53443934 , 126.972923 )}
+                                                ,{title: ' 숙대입구 ', latlng: new kakao.maps.LatLng( 37.54459523 , 126.9721181 )}
+                                                ,{title: ' 신용산 ', latlng: new kakao.maps.LatLng( 37.52925915 , 126.967965 )}
+                                                ,{title: ' 이촌 ', latlng: new kakao.maps.LatLng( 37.52241291 , 126.9735427 )}
+                                                ,{title: ' 녹사평 ', latlng: new kakao.maps.LatLng( 37.5347228 , 126.9865497 )}
+                                                ,{title: ' 이태원 ', latlng: new kakao.maps.LatLng( 37.53452521 , 126.9943339 )}
+                                                ,{title: ' 서울역 ', latlng: new kakao.maps.LatLng( 37.55598024 , 126.9720913 )}
+                                                ,{title: ' 한강진 ', latlng: new kakao.maps.LatLng( 37.53979077 , 127.0017651 )}
+                                                ,{title: ' 효창공원앞 ', latlng: new kakao.maps.LatLng( 37.53930875 , 126.9613981 )}
+
+                                                ];
+                                        }
+                                        else if(value == "은평구"){
+                                            positions = [
+                                                {
+                                                    title: '구파발', 
+                                                    latlng: new kakao.maps.LatLng(37.63643579 , 126.9188528)
+                                                },
+                                                {
+                                                    title: '녹번', 
+                                                    latlng: new kakao.maps.LatLng(37.60080677 , 126.935828)
+                                                },
+                                                {
+                                                    title: '불광', 
+                                                    latlng: new kakao.maps.LatLng(37.6100478 , 126.9303158  )
+                                                },
+                                                {
+                                                    title: '연신내',
+                                                    latlng: new kakao.maps.LatLng( 37.61920325 , 126.9211007 )
+                                                },
+                                                {
+                                                    title: '독바위', 
+                                                    latlng: new kakao.maps.LatLng(37.61841416 , 126.9330537 )
+                                                },
+                                                {
+                                                    title: '구산', 
+                                                    latlng: new kakao.maps.LatLng( 37.61124669 , 126.9172583 )
+                                                },
+                                                {
+                                                    title: '새절', 
+                                                    latlng: new kakao.maps.LatLng(37.59086005 , 126.9135807  )
+                                                },
+                                                {
+                                                    title: '역촌', 
+                                                    latlng: new kakao.maps.LatLng(37.60622656 , 126.9228449 )
+                                                },
+                                                {
+                                                    title: '응암', 
+                                                    latlng: new kakao.maps.LatLng(37.59849106 , 126.9155422  )
+                                                },
+                                                {
+                                                    title: '증산', 
+                                                    latlng: new kakao.maps.LatLng(37.58374635 , 126.909495)
+                                                },
+                                                {
+                                                    title: '불광', 
+                                                    latlng: new kakao.maps.LatLng(37.6100478 , 126.9303158)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "종로구"){
+                                            positions = [
+                                                {
+                                                    title: '동대문', 
+                                                    latlng: new kakao.maps.LatLng(37.5716676 , 127.0106315)
+                                                },
+                                                {
+                                                    title: '동묘앞', 
+                                                    latlng: new kakao.maps.LatLng(37.57321666 , 127.0163642)
+                                                },
+                                                {
+                                                    title: '종로5가', 
+                                                    latlng: new kakao.maps.LatLng(37.57097611 , 127.0015395 )
+                                                },
+                                                {
+                                                    title: '종각',
+                                                    latlng: new kakao.maps.LatLng( 37.57022889 , 126.9831519)
+                                                },
+                                                {
+                                                    title: '종로3가', 
+                                                    latlng: new kakao.maps.LatLng(37.57042084 , 126.9921533)
+                                                },
+                                                {
+                                                    title: '경복궁', 
+                                                    latlng: new kakao.maps.LatLng( 37.57580612 , 126.9736914 )
+                                                },
+                                                {
+                                                    title: '안국', 
+                                                    latlng: new kakao.maps.LatLng(37.57650012 , 126.9854237 )
+                                                },
+                                                {
+                                                    title: '혜화', 
+                                                    latlng: new kakao.maps.LatLng( 37.58204392 , 127.0019427)
+                                                },
+                                                {
+                                                    title: '광화문', 
+                                                    latlng: new kakao.maps.LatLng(37.57164771 , 126.9764231 )
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "중구"){
+                                            positions = [
+                                                {
+                                                    title: '서울역', 
+                                                    latlng: new kakao.maps.LatLng(37.55598024 , 126.9720913)
+                                                },
+                                                {
+                                                    title: '시청', 
+                                                    latlng: new kakao.maps.LatLng(37.5653445 , 126.9771993)
+                                                },
+                                                {
+                                                    title: '동대문역사문화공원', 
+                                                    latlng: new kakao.maps.LatLng(37.5656635 , 127.0090053 )
+                                                },
+                                                {
+                                                    title: '신당',
+                                                    latlng: new kakao.maps.LatLng( 37.56567305 , 127.0194775)
+                                                },
+                                                {
+                                                    title: '을지로3가', 
+                                                    latlng: new kakao.maps.LatLng(37.5662906 , 126.9909856)
+                                                },
+                                                {
+                                                    title: '을지로4가', 
+                                                    latlng: new kakao.maps.LatLng(37.5666405 , 126.9976321)
+                                                },
+                                                {
+                                                    title: '을지로입구', 
+                                                    latlng: new kakao.maps.LatLng(37.56603732 , 126.982193 )
+                                                },
+                                                {
+                                                    title: '동대입구', 
+                                                    latlng: new kakao.maps.LatLng( 37.55905402 , 127.0053149 )
+                                                },
+                                                {
+                                                    title: '약수', 
+                                                    latlng: new kakao.maps.LatLng( 37.5545054 , 127.0108917)
+                                                },
+                                                {
+                                                    title: '충무로', 
+                                                    latlng: new kakao.maps.LatLng(37.56139658 , 126.9941507 )
+                                                },
+                                                {
+                                                    title: '명동', 
+                                                    latlng: new kakao.maps.LatLng(37.56096347 , 126.9864001)
+                                                },
+                                                {
+                                                    title: '회현', 
+                                                    latlng: new kakao.maps.LatLng(37.55876024 , 126.9784373)
+                                                },
+                                                {
+                                                    title: '청구', 
+                                                    latlng: new kakao.maps.LatLng( 37.56021019 , 127.0139438 )
+                                                },
+                                                {
+                                                    title: '버티고개', 
+                                                    latlng: new kakao.maps.LatLng(37.54782751 , 127.0067309)
+                                                }
+                                            ];
+                                        }
+                                        else if(value == "중랑구"){
+                                            positions = [
+                                                {
+                                                    title: '봉화산', 
+                                                    latlng: new kakao.maps.LatLng(37.61735264 , 127.0913613)
+                                                },
+                                                {
+                                                    title: '신내', 
+                                                    latlng: new kakao.maps.LatLng(37.61249102 , 127.1042714)
+                                                },
+                                                {
+                                                    title: '태릉입구', 
+                                                    latlng: new kakao.maps.LatLng( 37.61845951 , 127.0754053)
+                                                },
+                                                {
+                                                    title: '화랑대',
+                                                    latlng: new kakao.maps.LatLng( 37.61984155 , 127.0835441)
+                                                },
+                                                {
+                                                    title: '먹골', 
+                                                    latlng: new kakao.maps.LatLng(37.61061938 , 127.0777622)
+                                                },
+                                                {
+                                                    title: '면목', 
+                                                    latlng: new kakao.maps.LatLng(37.58871489 , 127.0875038)
+                                                },
+                                                {
+                                                    title: '사가정', 
+                                                    latlng: new kakao.maps.LatLng(37.58094038 , 127.0885046)
+                                                },
+                                                {
+                                                    title: '상봉', 
+                                                    latlng: new kakao.maps.LatLng(37.59670978 , 127.0857467)
+                                                },
+                                                {
+                                                    title: '용마산', 
+                                                    latlng: new kakao.maps.LatLng( 37.5737157 , 127.0867618)
+                                                },
+                                                {
+                                                    title: '중화', 
+                                                    latlng: new kakao.maps.LatLng(37.60255269 , 127.079312)
+                                                }
+                                            ];
+                                        }
+                                        
+
+                                        // 마커 이미지의 이미지 주소입니다
+                                        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+                                            
+                                        for (var i = 0; i < positions.length; i ++) {
+                                            
+                                            // 마커 이미지의 이미지 크기 입니다
+                                            var imageSize = new kakao.maps.Size(24, 35); 
+                                            
+                                            // 마커 이미지를 생성합니다    
+                                            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                                            
+                                            // 마커를 생성합니다
+                                            var marker = new kakao.maps.Marker({
+                                                map: map, // 마커를 표시할 지도
+                                                position: positions[i].latlng, // 마커를 표시할 위치
+                                                title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                                image : markerImage // 마커 이미지 
+                                            });
+                                        }
+                                        </script>
+                                    </div>                      
                                 </td>
                             </tr>
                         </table>
