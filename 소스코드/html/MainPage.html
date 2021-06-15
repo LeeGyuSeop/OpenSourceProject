@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
         <script type="text/javascript" src="../js/EventScript.js"></script>
+
         <title>대중교통 유동인구 기반 상권분석 시스템</title>
     </head>
     <body id="body">
@@ -15,7 +15,7 @@
             <div class ="tableSort">
                 <table width="100%" class="table">
                     <tr>
-                        <td width="30%">
+                        <td colspan="2">
                             <div class="selectMenu">
                                 <div class="centerSort">
                                     <a>업종과 시간대를 선택해주세요<a><br></br>
@@ -106,14 +106,9 @@
                 
                                         <option value="학원-자격/국가고시" class="academicEducation" hidden>학원-자격/국가고시</option>
                                         <option value="유아교육" class="academicEducation" hidden>유아교육</option>
-                                        <option value="학교" class="academicEducation" hidden>학교</option>
-                                        <option value="특수교육기관" class="academicEducation" hidden>특수교육기관</option>
-                                        <option value="기타교육기관" class="academicEducation" hidden>기타교육기관</option>
                                         <option value="도서관/독서실" class="academicEducation" hidden>도서관/독서실</option>
-                                        <option value="연구소" class="academicEducation" hidden>연구소</option>
                                         <option value="학원기타" class="academicEducation" hidden>학원기타</option>
                                         <option value="학원-예능취미체육" class="academicEducation" hidden>학원-예능취미체육</option>
-                                        <option value="학원-창업취업취미" class="academicEducation" hidden>학원-창업취업취미</option>
                                         <option value="학원-자격/국가고시" class="academicEducation" hidden>학원-자격/국가고시</option>
                                         <option value="학원-보습교습입시" class="academicEducation" hidden>학원-보습교습입시</option>
                                         <option value="학원-음악미술무용" class="academicEducation" hidden>학원-음악미술무용</option>
@@ -139,46 +134,43 @@
                                         <option value="오후">오후(14~19)</option>
                                         <option value="저녁">저녁(19~24)</option>
                                     </select>
-                                    <input type="button" name="selectSuccess" value="선택완료" onclick="startAnalysis();"/><br></br>
+                                    <input type="button" name="selectSuccess" value="선택완료"/><br></br>
                                 </div>
                             </div>
-                        </td>
-                        <td>
-                            <h2>선택지역</h2>
                         </td>
                     </tr>
                     <tr>
                         <table width="100%" class="table">
                             <tr>
                                 <td width="10%">
-                                    <h2>선택옵션 위치</h2>
+                                    <h2>차트 선택</h2>
                                     <select id="areaBox2" onchange="selectStaion();">
                                         <option value="추천지역">추천지역</option>
-                                        <option value="강남구" hidden>강남구</option>
-                                        <option value="강동구" hidden>강동구</option>
-                                        <option value="강북구" hidden>강북구</option>
-                                        <option value="강서구" hidden>강서구</option>
-                                        <option value="관악구" hidden>관악구</option>
-                                        <option value="광진구" hidden>광진구</option>
-                                        <option value="구로구" hidden>구로구</option>
-                                        <option value="금천구" hidden>금천구</option>
-                                        <option value="노원구" hidden>노원구</option>
-                                        <option value="동대문구" hidden>동대문구</option>
-                                        <option value="도봉구" hidden>도봉구</option>
-                                        <option value="동작구" hidden>동작구</option>
-                                        <option value="마포구" hidden>마포구</option>
-                                        <option value="서대문구" hidden>서대문구</option>
-                                        <option value="성동구" hidden>성동구</option>
-                                        <option value="성북구" hidden>성북구</option>
-                                        <option value="서초구" hidden>서초구</option>
-                                        <option value="송파구" hidden>송파구</option>
-                                        <option value="영등포구" hidden>영등포구</option>
-                                        <option value="양천구" hidden>양천구</option>
-                                        <option value="용산구" hidden>용산구</option>
-                                        <option value="은평구" hidden>은평구</option>
-                                        <option value="종로구" hidden>종로구</option>
-                                        <option value="중구" hidden>중구</option>
-                                        <option value="중랑구" hidden>중랑구</option>
+                                        <option value="강남구">강남구</option>
+                                        <option value="강동구">강동구</option>
+                                        <option value="강북구">강북구</option>
+                                        <option value="강서구">강서구</option>
+                                        <option value="관악구">관악구</option>
+                                        <option value="광진구">광진구</option>
+                                        <option value="구로구">구로구</option>
+                                        <option value="금천구">금천구</option>
+                                        <option value="노원구">노원구</option>
+                                        <option value="동대문구">동대문구</option>
+                                        <option value="도봉구">도봉구</option>
+                                        <option value="동작구">동작구</option>
+                                        <option value="마포구">마포구</option>
+                                        <option value="서대문구">서대문구</option>
+                                        <option value="성동구">성동구</option>
+                                        <option value="성북구">성북구</option>
+                                        <option value="서초구">서초구</option>
+                                        <option value="송파구">송파구</option>
+                                        <option value="영등포구">영등포구</option>
+                                        <option value="양천구">양천구</option>
+                                        <option value="용산구">용산구</option>
+                                        <option value="은평구">은평구</option>
+                                        <option value="종로구">종로구</option>
+                                        <option value="중구">중구</option>
+                                        <option value="중랑구">중랑구</option>
                                     </select><br></br>
                                     <select id="stationBox">
                                         <option value="역명">역명</option>
@@ -538,15 +530,15 @@
                                     </select>
                                 </td>
                                 <td class="chart">
-                                    <h2>그래프삽입 위치</h2>
+                                    <!--차트 삽입 공간-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class = "map">
+                                    <!--지도 삽입 공간-->
                                 </td>
                             </tr>
                         </table>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <a>라이센스 정보 : </a>
-                        </td>
                     </tr>
                </table>
             </div>
