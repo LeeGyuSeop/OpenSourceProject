@@ -1,4 +1,3 @@
-
 public class Bus_Data {
     String Code;
     String Bus;
@@ -10,7 +9,7 @@ public class Bus_Data {
 	
     Bus_Data(String Code, String Bus, String address,
 			int morning, int lunch, int afternoon,
-			int dinner){
+			int dinner) {
 	this.Code = Code;
 	this.Bus = Bus;
 	this.address = address;
